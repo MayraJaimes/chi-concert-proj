@@ -69,3 +69,8 @@ h1, p {
 	margin-bottom: 10px;
 >>>>>>> 3d2bdc3c009ed29136c2d57346e02972e1e063b1
 }
+
+.likeButton { 
+	width: 25px;
+	height: 25px;
+}
