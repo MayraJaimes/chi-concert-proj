@@ -1,5 +1,5 @@
 
-This is the javascript for the venues html and was saved as chat.js
+// This is the javascript for the venues html and was saved as chat.js
 
 var config = {
    apiKey: "AIzaSyD6CYwGfDAf5Tlo7QRyxSdo6V6ctbOXFpM",
@@ -61,4 +61,11 @@ var config = {
 
  $("#comment-display").prepend("<div></div>" + "User Name:" + " " + userName + "<div></div>" + message + "<div></div>");
 
+ });
+
+ var likeCounter = 0;
+
+ $(".likeButton").on("click", function(){
+     likeCounter ++;
+     $(".displayLikes").html(likeCounter + " likes")
  });
