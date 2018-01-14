@@ -1,16 +1,6 @@
-
-// This is the javascript for the venues html and was saved as chat.js
-
-var config = {
-   apiKey: "AIzaSyD6CYwGfDAf5Tlo7QRyxSdo6V6ctbOXFpM",
-   authDomain: "concert-forum.firebaseapp.com",
-   databaseURL: "https://concert-forum.firebaseio.com",
-   projectId: "concert-forum",
-   storageBucket: "concert-forum.appspot.com",
-   messagingSenderId: "429361418902"
- };
- 
- firebase.initializeApp(config);
+// ARIANNA: This is Mayra. I added the config and initialize in the firebase.js and 
+//linked it in the venues.html so that we arent initializing 
+//it multiple times since that was giving me errors.
 
  var database = firebase.database();
 
@@ -47,7 +37,6 @@ var config = {
      
  });
 
-
 //Create Firebase event for adding messages
  database.ref().on("child_added", function(snapshot) {
 
@@ -63,9 +52,3 @@ var config = {
 
  });
 
- var likeCounter = 0;
-
- $(".likeButton").on("click", function(){
-     likeCounter ++;
-     $(".displayLikes").html(likeCounter + " likes")
- });
