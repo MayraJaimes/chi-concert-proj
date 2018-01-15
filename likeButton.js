@@ -61,7 +61,6 @@ $("#venuePage").on("click", ".likeButton", function(e) {
 	e.preventDefault();
 	
 	var $button = $(this);
-	thisButton = $button;
 	likeType = $(this).data('likeType');
 	liked = $(this).data('liked')
 
@@ -73,7 +72,7 @@ $("#venuePage").on("click", ".likeButton", function(e) {
 		$button.data("number", currentNum);
 
   		$button.data('liked', true);
-  		$button.text(currentNum);
+  		$button.html("<img src='assets/images/likeButton.png'>" + currentNum + " likes");
   	} else {
 
   		currentNum = $button.data("number");
@@ -82,7 +81,9 @@ $("#venuePage").on("click", ".likeButton", function(e) {
 		$button.data("number", currentNum);
 
   		$button.data('liked', false);
-  		$button.text(currentNum);
+
+  		$button.html("<img src='assets/images/likeButton.png'>" + currentNum + " likes");
+
   	}
 
 	if ($button.data('likeType', 'venue') === true) {

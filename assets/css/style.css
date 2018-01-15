@@ -72,6 +72,8 @@ h1, p {
 	height: 25px;
 }
 
-#venuePage .panel-body .likeButton {
-	color: green;
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: black;
 }
