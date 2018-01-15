@@ -29,8 +29,8 @@
    <div id="flagBlueTwo"></div>
  </div>
 
- <div class="container">
-   <br>
+<div class="container" id="venuePage">
+  <br>
 
    <!-- Jumbotron Title -->
    <div class="jumbotron">
@@ -38,10 +38,11 @@
      <div class="row">
        <div class="col-lg-8">
           <h1 class="text-left" id="venueName">Venue Name</h1>
+          <a href="#" class="likeButton" data-like-type="venue" data-liked=false data-likes=""><img src="assets/images/likeButton.png"> <span class="displayLikes"> 0 likes</span></a>
        </div>
        
        <div class="col-lg-4">
-        <img id="venueImage" src="http://www.unitedcenter.com/assets/1/7/unitedcenter3.png">
+          <img id="venueImage" src="http://www.unitedcenter.com/assets/1/7/unitedcenter3.png">
 
        </div>
      
@@ -49,7 +50,6 @@
          <h3 class="text-left" id="venueCapacity">this is where it will display capacity</h3>
          <h3 class="text-left" id="venueStart">this is where it will display "Doors"</h3>
      </div>
-   </div>
 
    <!-- Current Product -->
    <div class="row">
@@ -58,6 +58,7 @@
          <div class="panel-body">
            <div class="row">
              <div class="col-sm-12 ">
+             
                <table class="table">
                  <thead>
                    <tr>
@@ -68,17 +69,23 @@
                    </tr>
                  </thead>
                  <tbody>
+                 <tr>
+                     <td class="eventArtist"> Example 1</td>
+                     <td class="eventDate">Example 1</td>
+                     <td class="eventPrice">Example 1</td>
+                     <td class="eventLikes"><a href="#" class="likeButton" data-like-type="venue" data-liked=false data-likes=""><img src="assets/images/likeButton.png"> <span class="displayLikes"> 0 likes</span></a></td>
+                   </tr> 
                    <tr>
                      <td class="eventArtist"> Example 1</td>
                      <td class="eventDate">Example 1</td>
                      <td class="eventPrice">Example 1</td>
-                     <td class="eventLikes"> <img class="likeButton" src="assets/images/likeButton.png"> <span class ="displayLikes"> 0 likes</span> </td>
+                     <td class="eventLikes"><a href="#"  data-like-type="concert" data-like-id="1234" class="likeButton"><img src="assets/images/likeButton.png"> <span class ="displayLikes"> 0 likes</span> </a></td>
                    </tr> 
                     <tr>
                      <td class="eventArtist"> Example 2</td>
                      <td class="eventDate">Example 2</td>
                      <td class="eventPrice">Example 2</td>
-                     <td class="eventLikes">Example 2</td>
+                     <td class="eventLikes"><a href="#"  data-like-type="concert" data-like-id="5678" class="likeButton"> <img src="assets/images/likeButton.png" data-like-type="concert"> <span class ="displayLikes"> 0 likes</span> </a></td>
                    </tr>    
                  </tbody>
                </table>
@@ -89,6 +96,7 @@
      </div>
    </div>
 
+</div>
  <form>
    
      User Name
@@ -117,7 +125,7 @@
  </div>
 
  <!-- JavaScript -->
-<script src="chat.js"></script>
+<!--<script src="chat.js"></script> -->
 <script src="likeButton.js"></script>
 
 
