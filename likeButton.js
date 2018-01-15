@@ -3,78 +3,94 @@ console.log(firebase);
 const venueName = 'united_center';
 
 var database = firebase.database();
-var venueData = database.ref('venues/' + venueName);
+var venueData ;
 var initialClickCount = venueData.child('liked');
 
-var clickCounter = "";
+var clickCounter = 0;
 var buttonClicked = false;
 
 var venueButtonClicked = false;
 var venueClickCounter= "";
 
-let likeType = 'venue';
-let liked = '';
-let likeId = '1234';
-let thisButton = '';
+var likeType = '';
+var liked = '';
+var likeId = '';
+var thisButton = '';
+
+var initialVenueLiked = 0;
+var initialConcertLiked = 0;
+var venueLiked = initialVenueLiked;
+var concertLiked = initialConcertLiked;
+
+var currentNum = "";
+var newNum = "";
 
 // look up if its okay to have multiple listeners for value
 // how to access the data children
 
-venueData.on("value", function(snapshot) {
-	console.log('snapshot.val')
-  	console.log(snapshot.val());
-  	let likeCounter = 0;
+database.ref('/venues-' + venueName).on("value", function(snapshot) {
+  if (snapshot.child("venueLiked").exists() && snapshot.child("concertLiked").exists()) {
+		venueLiked = snapshot.val().venueLiked;
+    	concertLiked = snapshot.val().concertLiked;
+
+    // Change the HTML to reflect the initial value
+    $(".displayVenueLikes").text(snapshot.val().venueLiked);
+    $(".displayLikes").text(snapshot.val().concertLiked);
+
+}
+
+else {
+
+	$(".displayVenueLikes").text(venueLiked);
+    $(".displayLikes").text(concertLiked);
+
+}
 
   	// if (likeType === 'venue') {
   	// 	likeCounter = snapshot.val().liked || 0;
   	// } else {
   	// 	likeCount = snapshot.val().events['1234'].liked || 0;
   	// }
-
-
   	// thisButton.find('.displayLikes').text(likeCounter + " likes") ;
-
-  	// clickCounter = snapshot.val() || 0;
-  	// venueClickCounter = snapshot.val() || 0;
-
-  	// console.log(clickCounter);
-
-  	// $(".displayLikes").text(clickCounter + " likes");
-  	// $(".displayVenueLikes").text(venueClickCounter + " likes");
-
 
 }, function(errorObject) {
   console.log("The read failed: " + errorObject.code);
 });
 
 $("#venuePage").on("click", ".likeButton", function(e) {
-	console.log(this);
 	e.preventDefault();
-	console.log($(this));
-	console.log($(this).data('likeType'));
-	console.log($(this).data('likeId'));
 	
-	const $button = $(e.currentTarget);
+	var $button = $(this);
 	thisButton = $button;
-	likeType = $(e.currentTarget).data('likeType');
-	liked = $(e.currentTarget).data('liked')
+	likeType = $(this).data('likeType');
+	liked = $(this).data('liked')
 
 	if (!liked) {
-  		clickCounter++;
+
+		currentNum = $button.data("likes");
+		currentNum = parseInt(currentNum);
+
+		currentNum ++
+
+		$button.data("likes", currentNum)
+
+		$button.val()
   		$button.data('liked', true);
+  		$button.text(currentNum);
   	} else {
   		clickCounter--
   		$button.data('liked', false);
+  		$button.text(clickCounter);
   	}
 
 	if (likeType === 'venue') {
-		venueData.set({
-			liked: clickCounter
+		database.ref('venues/' + venueName).set({
+			venueLiked: clickCounter;
 		});
 	} else {
-		likeId = $(e.currentTarget).data('likeId');
-		venueData.child('events/' + likeId).set({
-			liked: clickCounter
+		likeId = $(this).data('likeId');
+		database.ref('venues/' + venueName).child('events/' + likeId).set({
+			concertLiked: clickCounter;
 		})
 	}
 });
