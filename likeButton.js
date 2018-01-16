@@ -1,100 +1,99 @@
-console.log(firebase);
+var config = {
+    apiKey: "AIzaSyCXjft2kReyOPJVDnJci8SvwLzS9DjsOL0",
+    authDomain: "class-concert-project.firebaseapp.com",
+    databaseURL: "https://class-concert-project.firebaseio.com",
+    projectId: "class-concert-project",
+    storageBucket: "class-concert-project.appspot.com",
+    messagingSenderId: "623152189871"
+};
 
-const venueName = 'united_center';
+firebase.initializeApp(config);
 
-var database = firebase.database();
-var venueData ;
-// var initialClickCount = venueData.child('liked');
+var mockConcertData = [
+		{artist: 'Dennis', date: 'february 20, 2017', price: '40.00', apinumber: "3456"}, 
+		{artist: 'Mayra', date: 'january 5, 2017', price: '30.00', apinumber: "1234"}, 
+		{artist: 'Madison', date: 'july 3, 2017', price: '500.00', apinumber: "5678"}, 
+		{artist: 'Jayden', date: 'december 10, 2017', price: '80.00', apinumber: "9876"}]; 
 
-var clickCounter = 0;
-var buttonClicked = false;
 
-var venueButtonClicked = false;
-var venueClickCounter= "";
-
+var db = firebase.database();
+var venueName = 'united_center';
 var likeType = '';
-var liked = '';
-var likeId = '';
-var thisButton = '';
-
+var currentNum = "";
 var initialVenueLiked = 0;
 var initialConcertLiked = 0;
-var venueLiked = initialVenueLiked;
-var concertLiked = initialConcertLiked;
+var concertLikeCounter = initialConcertLiked;
+var venueLikeCounter = initialVenueLiked;
+var apinumber = $(this).data('apinumber');
+var concertHTML = '';
+let currentLike = 0;
 
-var currentNum = "";
-var newNum = "";
+for (i=0; i<mockConcertData.length; i++) {
+	console.log('mockConcertData[i].apinumber: ' + mockConcertData[i].apinumber);
 
-// look up if its okay to have multiple listeners for value
-// how to access the data children
+	db.ref("likes/concerts/" + mockConcertData[i].apinumber).on("value", function(snapshot) {
+		console.log('snapshot.val()')
+		console.log(snapshot.val())
+	  concertLikeCounter = snapshot.val() && snapshot.val().concertLikeCount ? snapshot.val().concertLikeCount : 0;
+	  currentLike = snapshot.val() && snapshot.val().concertLikeCount ? snapshot.val().concertLikeCount : 0;
 
-// database.ref('venues-' + venueName).on("value", function(snapshot) {
-//   if (snapshot.child("venueLiked").exists() && snapshot.child("concertLiked").exists()) {
-// 		venueLiked = snapshot.val().venueLiked;
-//     	concertLiked = snapshot.val().concertLiked;
+	  console.log('snapshot.val().concertLikeCount: ' + snapshot.val().concertLikeCount);
+	  console.log('currentLike: ' + currentLike);
 
-//     // Change the HTML to reflect the initial value
-//     $(".displayVenueLikes").text(snapshot.val().venueLiked);
-//     $(".displayLikes").text(snapshot.val().concertLiked);
+	  }, function(errorObject) {
+	  console.log("The read failed: " + errorObject.code);
+	});
 
-// }
 
-// else {
+	concertHTML += `<tr><td class="eventArtist"> ${mockConcertData[i].artist}</td>
+                     <td class="eventDate">${mockConcertData[i].date}</td>
+                     <td class="eventPrice">${mockConcertData[i].price}</td>
+                     <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="${mockConcertData[i].apinumber}" class="likeButton" data-number="0"><img src="assets/images/likeButton.png"> <span class ="displayLikes">${currentLike} likes</span> </a></td></tr>`;
+}
 
-// 	$(".displayVenueLikes").text(venueLiked);
-//     $(".displayLikes").text(concertLiked);
+$("#concertTable").html(concertHTML);
 
-// }
-
-// 			  	// if (likeType === 'venue') {
-// 			  	// 	likeCounter = snapshot.val().liked || 0;
-// 			  	// } else {
-// 			  	// 	likeCount = snapshot.val().events['1234'].liked || 0;
-// 			  	// }
-// 			  	// thisButton.find('.displayLikes').text(likeCounter + " likes") ;
-
-// }, function(errorObject) {
-//   console.log("The read failed: " + errorObject.code);
-// });
-
-$("#venuePage").on("click", ".likeButton", function(e) {
-	e.preventDefault();
-	
-	var $button = $(this);
-	likeType = $(this).data('likeType');
-	liked = $(this).data('liked')
-
-	if (!liked) {
-
-		currentNum = $button.data("number");
-		currentNum ++;
-
-		$button.data("number", currentNum);
-
-  		$button.data('liked', true);
-  		$button.html("<img src='assets/images/likeButton.png'>" + currentNum + " likes");
-  	} else {
-
-  		currentNum = $button.data("number");
-		currentNum --;
-
-		$button.data("number", currentNum);
-
-  		$button.data('liked', false);
-
-  		$button.html("<img src='assets/images/likeButton.png'>" + currentNum + " likes");
-
-  	}
-
-	if ($button.data('likeType', 'venue') === true) {
-		database.ref('venues/' + venueName).set({
-			venueLiked: currentNum,
-		});
-	
-	} else {
-		likeId = $(this).data('likeId');
-		database.ref('venues/' + venueName).child('events/' + likeId).set({
-			concertLiked: currentNum,
-		})
-	}
+db.ref("likes/venues/" + venueName).on('value', function (snapshot) {
+  venueLikeCounter = snapshot.val().venueLikeCount;
+  $(".displayVenueLikes").text(snapshot.val().venueLikeCount + " likes");
+    
+   }, function(errorObject) {
+  console.log("The read failed: " + errorObject.code);
 });
+
+  
+// $("#venuePage").on("click", ".likeButton", function() {
+//   event.preventDefault();
+//   liked = $(this).data('liked')
+
+//   if (!liked) {
+//     	currentNum = $(this).data("number");
+//     	currentNum ++;
+//     	$(this).data("number", currentNum);
+//     	$(this).data('liked', true);
+//     	$(this).html("<img src='assets/images/likeButton.png'>" + currentNum + " likes");
+    
+//     } else {
+//     	currentNum = $(this).data("number");
+//     	currentNum --;
+//     	$(this).data("number", currentNum);
+//     	$(this).data('liked', false);
+//     	$(this).html("<img src='assets/images/likeButton.png'>" + currentNum + " likes");
+//     }
+
+//   if ($(this).data('type') === 'venue') {
+//     venueLikeCounter = $(this).data("number");
+//     db.ref("likes/venues/" + venueName).set({
+//       venueLikeCount: venueLikeCounter 
+//     });
+//   }
+    
+//   else {
+//     apinumber = $(this).data('apinumber');
+//     console.log(apinumber);
+//     concertLikeCounter = $(this).data("number");
+//     db.ref("likes/concerts/"+ apinumber).set({
+//       concertLikeCount: concertLikeCounter
+//     });
+//   }
+// });
