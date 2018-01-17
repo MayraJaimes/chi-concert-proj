@@ -38,17 +38,16 @@
  });
 
 //Create Firebase event for adding messages
- database.ref().on("child_added", function(snapshot) {
+  database.ref().on("child_added", function(snapshot) {
 
- userName = snapshot.val().userName;
+  userName = snapshot.val().userName;
 
- message = snapshot.val().message;
+  message = snapshot.val().message;
 
- console.log(userName);
- console.log(message);
+  if (userName != null) {
 
 
- $("#comment-display").prepend("<div></div>" + "User Name:" + " " + userName + "<div></div>" + message + "<div></div>");
+  $("#comment-display").prepend("<div></div>" + "User Name:" + " " + userName + "<div></div>" + message + "<div></div>");
 
- });
+  }});
 

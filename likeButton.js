@@ -1,4 +1,4 @@
-  //var venueSongKickId = $(this).attr("data-id");
+
 var venueHTML = '';
 var venueSongKickId = 1284;
 
