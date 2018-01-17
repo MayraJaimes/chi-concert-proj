@@ -1,4 +1,4 @@
-  //var topic = $(this).attr("data-name");
+  //var venueSongKickId = $(this).attr("data-venueSongKickId");
 var venueSongKickId = 1284;
 var queryURL = "http://api.songkick.com/api/3.0/venues/" + venueSongKickId + "/calendar.json?apikey=awz1NrZkcMbHwia9";
 
@@ -12,7 +12,7 @@ $.ajax({
   concertHTML += `<tr id="${response[i].id}"><td class="eventArtist"> ${response[i].displayName}</td>
                    <td class="eventDate">${response[i].start.date}</td>
                    <td class="eventPrice">${response[i].id}</td>
-                   <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="${response[i].id}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`;
+                   <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-id="${response[i].id}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`;
 
     db.ref("likes/concerts/" + response[i].id).on("value", function(snapshot) {
       concertLikeCounter = snapshot.val() && snapshot.val().concertLikeCount ? snapshot.val().concertLikeCount : 0;
@@ -20,17 +20,13 @@ $.ajax({
       $('#' + response[i].id + ' .displayLikes').html(concertLikeCounter + ' likes')
       }, function(errorObject) {
       console.log("The read failed: " + errorObject.code);
-    });
-    $("#concertTable").html(concertHTML);
-
-}     
-  });
-
-
-
+    });    
+  }  
+  $("#concertTable").html(concertHTML);
+});
 
 //Your key is: awz1NrZkcMbHwia9
-
+ 
 var config = {
     apiKey: "AIzaSyCXjft2kReyOPJVDnJci8SvwLzS9DjsOL0",
     authDomain: "class-concert-project.firebaseapp.com",
@@ -41,7 +37,7 @@ var config = {
 };
  
 firebase.initializeApp(config);
- 
+
 var db = firebase.database();
 var venueName = 'united_center';
 var likeType = '';
@@ -50,10 +46,11 @@ var initialVenueLiked = 0;
 var initialConcertLiked = 0;
 var concertLikeCounter = initialConcertLiked;
 var venueLikeCounter = initialVenueLiked;
-var apinumber = $(this).data('apinumber');
+var venueId = $(this).data('id');
 var concertHTML = '';
 let currentLike = 0;
 
+//PARAMETER INFORMATION:
 // function getParameterByName(name, url) {
 //     if (!url) url = window.location.href;
 //     name = name.replace(/[\[\]]/g, "\\$&");
@@ -80,8 +77,6 @@ db.ref("likes/venues/" + venueName).on('value', function (snapshot) {
 $("#venuePage").on("click", ".likeButton", function() {
   event.preventDefault();
   liked = $(this).data('liked')
-  console.log('currentNum = $(this).data("number");')
-  console.log(currentNum = $(this).data("number")) 
  
   if (!liked) {
     currentNum = $(this).data("number")
@@ -104,10 +99,10 @@ $("#venuePage").on("click", ".likeButton", function() {
     });
 
   } else {
-    apinumber = $(this).data('apinumber');
-    console.log(apinumber);
+    venueId = $(this).data("id");
+    console.log(venueId);
     concertLikeCounter = $(this).data("number");
-    db.ref("likes/concerts/"+ apinumber).set({
+    db.ref("likes/concerts/"+ venueId).set({
       concertLikeCount: concertLikeCounter
     });
   }
