@@ -78,7 +78,8 @@ function addInfo() {
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
 		
-		var newVenueDiv = `<a href="venues.html?venue=${event.apiname}&displayName=${event.name}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
+		var newVenueDiv = `<div class="container venueBoxes">`+
+							`<a href="venues.html?venue=${event.apiname}&displayName=${event.name}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
 
 							`<div class="panel panel-default">`+
 							`<div class="panel-heading">`+
@@ -91,7 +92,9 @@ function addInfo() {
 										`<div class="row">`+
 										`<div class="col-md-6 website" id="website${i}">${event.website}</div></div></div>`+
 
+
 									`<div class="col-md-6 image" <img src=“assets/images/unitedCenter.jpg” alt=“unitedCenter”>${event.image}</div></a>`;
+
 
 
 		//append new containers to .top(large html container)				
