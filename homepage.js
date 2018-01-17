@@ -42,10 +42,44 @@ var riviera = new  Venue("Riviera"," 4746 N Racine Ave, Chicago, IL 60640","rivi
 var hob = new Venue("House of Blues", "329 N Dearborn St, Chicago, IL 60654","houseofblues.com/chicago","placeholder", "houseofblues");
 
 var chicagoTheater = new Venue("Chicago Theater", "175 N State St, Chicago, IL 60601", "chicago-theater.com", "placeholder", "chicagotheater")
+// added more venues
+var bottomLounge = new Venue("Bottom Lounge"," 1375 W Lake St, Chicago, IL 60607",
+							"https://bottomlounge.com/","", "");
+var tinleyPark = new Venue("Hollywood Casino Amphitheatre","19100 Ridgeland Ave, Tinley Park, IL 60477",
+							"www.tinleyparkamphitheater.com/","", "");
+var hideout = new Venue("Hideout Chicago","1354 W Wabansia Ave, Chicago, IL 60642",
+						"https://www.hideoutchicago.com/","", "");
+var greenMill = new Venue("Green Mill Cocktail Lounge",
+						"4802 N Broadway St, Chicago, IL 60640","greenmilljazz.com/","", "");
+var schubas = new Venue("Schubas Tavern","3159 N Southport Ave, Chicago, IL 60657",
+						"www.lh-st.com/","", "");
+var buddyGuys = new Venue("Buddy Guy's Legends","700 S Wabash Ave, Chicago, IL 60605",
+							"buddyguy.com/","", "");
+var reggies = new Venue("Reggies Rock Club","2109 S State St, Chicago, IL 60616",
+						"https://www.reggieslive.com","", "");
+var emptyBottle = new Venue("The Empty Bottle","1035 N Western Ave, Chicago, IL 60622",
+							"emptybottle.com/","", "");
+var oldTown = new Venue("Old Town School of Folk Music",
+						"4544 N Lincoln Ave","https://www.oldtownschool.org/",
+							"", "");
+var lincolnHall = new Venue("Lincoln Hall","2424 N Lincoln Ave, Chicago, IL 60614",
+							"www.lh-st.com/","", "");
+var doubleDoor = new Venue("Double Door","1551 N Damen Ave, Chicago, IL 60622",
+							"doubledoor.com/","");
+var parkWest = new Venue("Park West","322 W Armitage Ave, Chicago, IL 60614",
+						"https://www.parkwestchicago.com/","", "");
+var vic = new Venue("The Vic","3145 N Sheffield Ave, Chicago, IL 60657",
+					"https://www.victheatre.com/","", "");
+var milleniumPark = new Venue("","201 E Randolph St, Chicago, IL 60601",
+							"https://www.grantparkmusicfestival.com/the-music/2018season","", "");
+
 //  new venues go here;
 
 // add new venue object names to the end of venueArray
-var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater];
+var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater, bottomLounge,
+				 tinleyPark, hideout, greenMill, schubas, buddyGuys, reggies, emptyBottle,
+				 oldTown, lincolnHall, doubleDoor, parkWest, vic, milleniumPark];
+
 //add new venue object properties to the end of attrArray
 var attrArray = [name, address, website, image];
 //array for selectors generated in getSelectors function.
