@@ -18,7 +18,6 @@ $.ajax({
               <h3 class="text-left" id="venueStart">Info?</h3>
           </div>
        </div>
-       
        <div class="col-lg-4">
           <img id="venueImage" src="http://www.unitedcenter.com/assets/1/7/unitedcenter3.png">
        </div> 
@@ -28,7 +27,7 @@ $.ajax({
 
     db.ref("likes/venues/" + venueName).on('value', function (snapshot) {
     venueLikeCounter = snapshot.val() && snapshot.val().venueLikeCount ? snapshot.val().venueLikeCount : 0;
-    // $('.venueLikeButton').data('number', venueLikeCounter)
+    $('.venueLikeButton').data('number', venueLikeCounter)
     $(".displayVenueLikes").text(venueLikeCounter + " likes");
    
      }, function(errorObject) {
@@ -37,7 +36,7 @@ $.ajax({
 
 });
 
-var concertHTML = '';
+var concertHTML;
 $.ajax({
   url: "http://api.songkick.com/api/3.0/venues/" + venueSongKickId + "/calendar.json?apikey=awz1NrZkcMbHwia9",
   method: "GET"
@@ -47,10 +46,12 @@ $.ajax({
   console.log(response);
 
   for (let i=0; i<response.length; i++) { 
-  concertHTML += `<tr id="${response[i].id}"><td class="eventArtist"> ${response[i].displayName}</td>
+  concertHTML += `<tr id="${response[i].id}">
+                   <td class="eventArtist"> ${response[i].displayName}</td>
                    <td class="eventDate">${response[i].start.date}</td>
                    <td class="eventPrice">${response[i].id}</td>
-                   <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-id="${response[i].id}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`;
+                   <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-id="${response[i].id}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td>
+                   </tr>`;
 
     db.ref("likes/concerts/" + response[i].id).on("value", function(snapshot) {
       concertLikeCounter = snapshot.val() && snapshot.val().concertLikeCount ? snapshot.val().concertLikeCount : 0;
@@ -84,7 +85,7 @@ var initialVenueLiked = 0;
 var initialConcertLiked = 0;
 var concertLikeCounter = initialConcertLiked;
 var venueLikeCounter = initialVenueLiked;
-var venueId = $(this).data('id');
+var concertId = $(this).data('id');
 let currentLike = 0;
 
 //PARAMETER INFORMATION:
@@ -129,10 +130,10 @@ $("#venuePage").on("click", ".likeButton", function() {
     });
 
   } else {
-    venueId = $(this).data("id");
-    console.log(venueId);
+    concertId = $(this).data("id");
+    console.log(concertId);
     concertLikeCounter = $(this).data("number");
-    db.ref("likes/concerts/"+ venueId).set({
+    db.ref("likes/concerts/"+ concertId).set({
       concertLikeCount: concertLikeCounter
     });
   }
