@@ -1,13 +1,13 @@
-var config = {
-    apiKey: "AIzaSyCXjft2kReyOPJVDnJci8SvwLzS9DjsOL0",
-    authDomain: "class-concert-project.firebaseapp.com",
-    databaseURL: "https://class-concert-project.firebaseio.com",
-    projectId: "class-concert-project",
-    storageBucket: "class-concert-project.appspot.com",
-    messagingSenderId: "623152189871"
-};
+// var config = {
+//     apiKey: "AIzaSyCXjft2kReyOPJVDnJci8SvwLzS9DjsOL0",
+//     authDomain: "class-concert-project.firebaseapp.com",
+//     databaseURL: "https://class-concert-project.firebaseio.com",
+//     projectId: "class-concert-project",
+//     storageBucket: "class-concert-project.appspot.com",
+//     messagingSenderId: "623152189871"
+// };
  
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
  
 var mockConcertData = [
         {artist: 'Dennis', date: 'february 20, 2017', price: '40.00', apinumber: "3456"},
