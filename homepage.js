@@ -18,29 +18,30 @@ var website;
 var image;
 
 // constructor object for new venues
-function Venue(name, address, website, image)
+function Venue(name, address, website, image, apiname)
 {
 	this.name = name;
 	
 	this.address = address;
 	this.website = website;
 	this.image = image;
+	this.apiname = apiname;
 	//addd new properties here
 }
 
 var uc = new Venue("United Center", "1901 W Madison St, Chicago, IL 60612", 
-					"www.unitedcenter.com", "placeholder")
+					"www.unitedcenter.com", "placeholder", "unitedcenter")
 
 var aragon = new Venue("Aragon Ballroom"," 1106 W Lawrence Ave, Chicago, IL 60640",
-					 "www.thearagonballroom.com", "");
+					 "www.thearagonballroom.com", "placeholder", "aragonballroom");
 
-var metro = new  Venue("Metro","3730 N Clark St, Chicago, IL 60613","metrochicago.com","");
+var metro = new  Venue("Metro","3730 N Clark St, Chicago, IL 60613","metrochicago.com","placeholder", "metro");
 
-var riviera = new  Venue("Riviera"," 4746 N Racine Ave, Chicago, IL 60640","rivieratheatre.com","");
+var riviera = new  Venue("Riviera"," 4746 N Racine Ave, Chicago, IL 60640","rivieratheatre.com","placeholder", "riviera");
 
-var hob = new Venue("House of Blues", "329 N Dearborn St, Chicago, IL 60654","houseofblues.com/chicago","");
+var hob = new Venue("House of Blues", "329 N Dearborn St, Chicago, IL 60654","houseofblues.com/chicago","placeholder", "houseofblues");
 
-var chicagoTheater = new Venue("Chicago Theater", "175 N State St, Chicago, IL 60601", "chicago-theater.com", "")
+var chicagoTheater = new Venue("Chicago Theater", "175 N State St, Chicago, IL 60601", "chicago-theater.com", "placeholder", "chicagotheater")
 //  new venues go here;
 
 // add new venue object names to the end of venueArray
@@ -53,9 +54,7 @@ var selectArray = [];
 function getSelectors() {
 	for (var i = 0; i < attrArray.length; i++) {
 		
-		
 		var name = "$('"+"#" + "name"+[i] + "')";	
-
 		var address ="$('"+"#" + "address"+[i] + "')";
 		var website = "$('"+"#" + "website"+[i] + "')";
 		var image = "$('" + "#" + "image"+[i] + "')";
@@ -79,8 +78,8 @@ function addInfo() {
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
 		
-		var newVenueDiv = 	`<div class="container venueBoxes">`+
-							`<div class="row col-md-8 col-sm-8 col-xs-8 venue">`+
+		var newVenueDiv = `<a href="venues.html?venue=${event.apiname}&displayName=${event.name}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
+
 							`<div class="panel panel-default">`+
 							`<div class="panel-heading">`+
 								`<h3 class="panel-title" id= "name${i}">${event.name}</h3></div>`+
@@ -91,7 +90,9 @@ function addInfo() {
 											`<div class="col-md-12 address" id="address${i}">${event.address}</div></div>`+
 										`<div class="row">`+
 										`<div class="col-md-6 website" id="website${i}">${event.website}</div></div></div>`+
-									`<div class="col-md-6 image" <img src=“assets/images/unitedCenter.jpg” alt=“unitedCenter”>${event.image}</div></div>`;
+
+									`<div class="col-md-6 image" <img src=“assets/images/unitedCenter.jpg” alt=“unitedCenter”>${event.image}</div></a>`;
+
 
 		//append new containers to .top(large html container)				
 		$(".top").append(newVenueDiv);

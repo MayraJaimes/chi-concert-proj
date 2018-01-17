@@ -35,21 +35,9 @@
    <!-- Jumbotron Title -->
    <div class="jumbotron">
      
-     <div class="row">
-       <div class="col-lg-8">
-          <h1 class="text-left" id="venueName">United Center</h1>
-          <a href="#" class="likeButton" data-apinumber="555" data-type="venue" data-liked=false data-number="0"><img src="assets/images/likeButton.png"> <span class="displayVenueLikes"></span></a>
-       </div>
-       
-       <div class="col-lg-4">
-          <img id="venueImage" src="assets/images/unitedCenter.jpg">
-
-       </div>
-     
-     </div>
-         <h3 class="text-left" id="venueCapacity">Venue Capacity - 23,500</h3>
-         <h3 class="text-left" id="venueStart">this is where it will display "Doors"</h3>
-     </div>
+     <div class="row" id="venueInformation">
+    </div>
+  </div>
 
    <!-- Current Product -->
    <div class="row">
@@ -62,19 +50,13 @@
                <table class="table">
                  <thead>
                    <tr>
-                     <th>Artist</th>
+                     <th>Performance</th>
                      <th>Date</th>
                      <th>Ticket Price ($)</th>
                      <th>Likes</th>
                    </tr>
                  </thead>
-                 <tbody id="concertTable">
-                   <tr>
-                     <td class="eventArtist"> Loading </td>
-                     <td class="eventDate"> Loading </td>
-                     <td class="eventPrice"> Loading </td>
-                     <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="1234" class="likeButton" data-number="0"><img src="assets/images/likeButton.png"> <span class ="displayLikes"></span> </a></td>
-                   </tr> 
+                 <tbody id="concertTable"> 
                  </tbody>
                </table>
              </div>
