@@ -1,12 +1,50 @@
-  //var venueSongKickId = $(this).attr("data-venueSongKickId");
+  //var venueSongKickId = $(this).attr("data-id");
+var venueHTML = '';
 var venueSongKickId = 1284;
-var queryURL = "http://api.songkick.com/api/3.0/venues/" + venueSongKickId + "/calendar.json?apikey=awz1NrZkcMbHwia9";
 
 $.ajax({
-  url: queryURL,
+  url: "http://api.songkick.com/api/3.0/venues/1284.json?apikey=awz1NrZkcMbHwia9",
+  method: "GET"
+}).done(function(response) {
+  var response = response.resultsPage.results.venue;
+  console.log(response);
+
+  venueHTML = `
+       <div class="col-lg-8" >
+          <h1 class="text-left">${response.displayName}</h1>
+          <a href="#" class="venueLikeButton" data-id="${response.id}" data-type="venue" data-liked=false data-number="0"><img src="assets/images/likeButton.png"><span class="displayVenueLikes"></span></a>
+          <div>
+              <h3 class="text-left" id="venueCapacity">Venue Capacity: ${response.capacity}</h3>
+              <h3 class="text-left" id="venueStart">Info?</h3>
+          </div>
+       </div>
+       
+       <div class="col-lg-4">
+          <img id="venueImage" src="http://www.unitedcenter.com/assets/1/7/unitedcenter3.png">
+       </div> 
+    `
+
+  $("#venueInformation").html(venueHTML);
+
+    db.ref("likes/venues/" + venueName).on('value', function (snapshot) {
+    venueLikeCounter = snapshot.val() && snapshot.val().venueLikeCount ? snapshot.val().venueLikeCount : 0;
+    // $('.venueLikeButton').data('number', venueLikeCounter)
+    $(".displayVenueLikes").text(venueLikeCounter + " likes");
+   
+     }, function(errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  });
+
+});
+
+var concertHTML = '';
+$.ajax({
+  url: "http://api.songkick.com/api/3.0/venues/" + venueSongKickId + "/calendar.json?apikey=awz1NrZkcMbHwia9",
   method: "GET"
 }).done(function(response) {
   var response = response.resultsPage.results.event;
+
+  console.log(response);
 
   for (let i=0; i<response.length; i++) { 
   concertHTML += `<tr id="${response[i].id}"><td class="eventArtist"> ${response[i].displayName}</td>
@@ -47,7 +85,6 @@ var initialConcertLiked = 0;
 var concertLikeCounter = initialConcertLiked;
 var venueLikeCounter = initialVenueLiked;
 var venueId = $(this).data('id');
-var concertHTML = '';
 let currentLike = 0;
 
 //PARAMETER INFORMATION:
@@ -66,13 +103,6 @@ let currentLike = 0;
 
 // console.log(venuefromURL);
  
-db.ref("likes/venues/" + venueName).on('value', function (snapshot) {
-  venueLikeCounter = snapshot.val() && snapshot.val().venueLikeCount ? snapshot.val().venueLikeCount : 0;
-  $(".displayVenueLikes").text(venueLikeCounter + " likes");
- 
-   }, function(errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
  
 $("#venuePage").on("click", ".likeButton", function() {
   event.preventDefault();
