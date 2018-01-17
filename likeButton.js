@@ -1,39 +1,35 @@
-function displayConcerts() {
   //var topic = $(this).attr("data-name");
-  // var venueSongKickId = 1284;
-  var queryURL = "http://api.songkick.com/api/3.0/venues/1284/calendar.json?apikey=awz1NrZkcMbHwia9";
+var venueSongKickId = 1284;
+var queryURL = "http://api.songkick.com/api/3.0/venues/" + venueSongKickId + "/calendar.json?apikey=awz1NrZkcMbHwia9";
 
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).done(function(response) {
-    var response = response.resultsPage.results.event;
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).done(function(response) {
+  var response = response.resultsPage.results.event;
 
-    console.log(response);
+  for (let i=0; i<response.length; i++) { 
+  concertHTML += `<tr id="${response[i].id}"><td class="eventArtist"> ${response[i].displayName}</td>
+                   <td class="eventDate">${response[i].start.date}</td>
+                   <td class="eventPrice">${response[i].id}</td>
+                   <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="${response[i].id}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`;
 
-    for (let i=0; i<response.length; i++) { 
-    concertHTML += `<tr id="${response[i].id}"><td class="eventArtist"> ${response[i].displayName}</td>
-                     <td class="eventDate">${response[i].start.date}</td>
-                     <td class="eventPrice">${response[i].id}</td>
-                     <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="${response[i].id}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`       
-    }
+    db.ref("likes/concerts/" + response[i].id).on("value", function(snapshot) {
+      concertLikeCounter = snapshot.val() && snapshot.val().concertLikeCount ? snapshot.val().concertLikeCount : 0;
+      $('#' + response[i].id + ' .likeButton').data('number', concertLikeCounter)
+      $('#' + response[i].id + ' .displayLikes').html(concertLikeCounter + ' likes')
+      }, function(errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+    $("#concertTable").html(concertHTML);
 
-$("#concertTable").html(concertHTML);
-  
+}     
   });
-}
 
 
-displayConcerts();
 
 
-//http://api.songkick.com/api/3.0/venues/1284/calendar.json?apikey=awz1NrZkcMbHwia9
-//ID: 1284
 //Your key is: awz1NrZkcMbHwia9
-
-
-
-
 
 var config = {
     apiKey: "AIzaSyCXjft2kReyOPJVDnJci8SvwLzS9DjsOL0",
@@ -45,12 +41,6 @@ var config = {
 };
  
 firebase.initializeApp(config);
- 
-var mockConcertData = [
-        {artist: 'Dennis', date: 'february 20, 2017', price: '40.00', apinumber: "3456"},
-        {artist: 'Mayra', date: 'january 5, 2017', price: '30.00', apinumber: "1234"},
-        {artist: 'Madison', date: 'july 3, 2017', price: '500.00', apinumber: "5678"},
-        {artist: 'Jayden', date: 'december 10, 2017', price: '80.00', apinumber: "9876"}];
  
 var db = firebase.database();
 var venueName = 'united_center';
@@ -78,26 +68,6 @@ let currentLike = 0;
 // $("#venueName").text(venuefromURL);
 
 // console.log(venuefromURL);
-
-
-
-
- 
-// for (let i=0; i<mockConcertData.length; i++) { 
-//     concertHTML += `<tr id="${mockConcertData[i].apinumber}"><td class="eventArtist"> ${mockConcertData[i].artist}</td>
-//                      <td class="eventDate">${mockConcertData[i].date}</td>
-//                      <td class="eventPrice">${mockConcertData[i].price}</td>
-//                      <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="${mockConcertData[i].apinumber}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`;
- 
-//     db.ref("likes/concerts/" + mockConcertData[i].apinumber).on("value", function(snapshot) {
-//       concertLikeCounter = snapshot.val() && snapshot.val().concertLikeCount ? snapshot.val().concertLikeCount : 0;
-//       $('#' + mockConcertData[i].apinumber + ' .likeButton').data('number', concertLikeCounter)
-//       $('#' + mockConcertData[i].apinumber + ' .displayLikes').html(concertLikeCounter + ' likes')
-//       }, function(errorObject) {
-//       console.log("The read failed: " + errorObject.code);
-//     })
-// }
-// $("#concertTable").html(concertHTML);
  
 db.ref("likes/venues/" + venueName).on('value', function (snapshot) {
   venueLikeCounter = snapshot.val() && snapshot.val().venueLikeCount ? snapshot.val().venueLikeCount : 0;
