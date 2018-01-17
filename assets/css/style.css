@@ -6,11 +6,13 @@
 }
 
 #venueImage {
-	width: 300px;
-	height: 200px;
+	width: 350px;
+	height: 250px;
 	float: right;
 	margin-right: 50px;
 	position: absolute;
+	margin-left: -20px;
+	margin-top: -10px;
 }
 
 .title {
