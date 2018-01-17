@@ -1,3 +1,40 @@
+function displayConcerts() {
+  //var topic = $(this).attr("data-name");
+  // var venueSongKickId = 1284;
+  var queryURL = "http://api.songkick.com/api/3.0/venues/1284/calendar.json?apikey=awz1NrZkcMbHwia9";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).done(function(response) {
+    var response = response.resultsPage.results.event;
+
+    console.log(response);
+
+    for (let i=0; i<response.length; i++) { 
+    concertHTML += `<tr id="${response[i].id}"><td class="eventArtist"> ${response[i].displayName}</td>
+                     <td class="eventDate">${response[i].start.date}</td>
+                     <td class="eventPrice">${response[i].id}</td>
+                     <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="${response[i].id}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`       
+    }
+
+$("#concertTable").html(concertHTML);
+  
+  });
+}
+
+
+displayConcerts();
+
+
+//http://api.songkick.com/api/3.0/venues/1284/calendar.json?apikey=awz1NrZkcMbHwia9
+//ID: 1284
+//Your key is: awz1NrZkcMbHwia9
+
+
+
+
+
 var config = {
     apiKey: "AIzaSyCXjft2kReyOPJVDnJci8SvwLzS9DjsOL0",
     authDomain: "class-concert-project.firebaseapp.com",
@@ -27,39 +64,40 @@ var apinumber = $(this).data('apinumber');
 var concertHTML = '';
 let currentLike = 0;
 
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-  }
+// function getParameterByName(name, url) {
+//     if (!url) url = window.location.href;
+//     name = name.replace(/[\[\]]/g, "\\$&");
+//     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+//         results = regex.exec(url);
+//     if (!results) return null;
+//     if (!results[2]) return '';
+//     return decodeURIComponent(results[2].replace(/\+/g, " "));
+//   }
 
-let venuefromURL = getParameterByName("displayName");
-$("#venueName").text(venuefromURL);
+// let venuefromURL = getParameterByName("displayName");
+// $("#venueName").text(venuefromURL);
 
-console.log(venuefromURL);
+// console.log(venuefromURL);
+
+
+
+
  
-for (let i=0; i<mockConcertData.length; i++) { 
-    concertHTML += `<tr id="${mockConcertData[i].apinumber}"><td class="eventArtist"> ${mockConcertData[i].artist}</td>
-                     <td class="eventDate">${mockConcertData[i].date}</td>
-                     <td class="eventPrice">${mockConcertData[i].price}</td>
-                     <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="${mockConcertData[i].apinumber}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`;
+// for (let i=0; i<mockConcertData.length; i++) { 
+//     concertHTML += `<tr id="${mockConcertData[i].apinumber}"><td class="eventArtist"> ${mockConcertData[i].artist}</td>
+//                      <td class="eventDate">${mockConcertData[i].date}</td>
+//                      <td class="eventPrice">${mockConcertData[i].price}</td>
+//                      <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="${mockConcertData[i].apinumber}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td></tr>`;
  
-    db.ref("likes/concerts/" + mockConcertData[i].apinumber).on("value", function(snapshot) {
-      concertLikeCounter = snapshot.val() && snapshot.val().concertLikeCount ? snapshot.val().concertLikeCount : 0;
-  
-    $('#' + mockConcertData[i].apinumber + ' .likeButton').data('number', concertLikeCounter)
-    $('#' + mockConcertData[i].apinumber + ' .displayLikes').html(concertLikeCounter + ' likes')
-      
-      }, function(errorObject) {
-      console.log("The read failed: " + errorObject.code);
-    })
-}
- 
-$("#concertTable").html(concertHTML);
+//     db.ref("likes/concerts/" + mockConcertData[i].apinumber).on("value", function(snapshot) {
+//       concertLikeCounter = snapshot.val() && snapshot.val().concertLikeCount ? snapshot.val().concertLikeCount : 0;
+//       $('#' + mockConcertData[i].apinumber + ' .likeButton').data('number', concertLikeCounter)
+//       $('#' + mockConcertData[i].apinumber + ' .displayLikes').html(concertLikeCounter + ' likes')
+//       }, function(errorObject) {
+//       console.log("The read failed: " + errorObject.code);
+//     })
+// }
+// $("#concertTable").html(concertHTML);
  
 db.ref("likes/venues/" + venueName).on('value', function (snapshot) {
   venueLikeCounter = snapshot.val() && snapshot.val().venueLikeCount ? snapshot.val().venueLikeCount : 0;
