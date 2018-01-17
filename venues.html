@@ -17,7 +17,7 @@
 
  <link rel="stylesheet" href="assets/css/style.css">
  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
- <script src="./firebase.js"></script>
+ <!--<script src="./firebase.js"></script> -->
 
 </head>
 
@@ -29,8 +29,8 @@
    <div id="flagBlueTwo"></div>
  </div>
 
- <div class="container">
-   <br>
+<div class="container" id="venuePage">
+  <br>
 
    <!-- Jumbotron Title -->
    <div class="jumbotron">
@@ -38,10 +38,11 @@
      <div class="row">
        <div class="col-lg-8">
           <h1 class="text-left" id="venueName">Venue Name</h1>
+          <a href="#" class="likeButton" data-apinumber="555" data-type="venue" data-liked=false data-number="0"><img src="assets/images/likeButton.png"> <span class="displayVenueLikes"></span></a>
        </div>
        
        <div class="col-lg-4">
-        <img id="venueImage" src="http://www.unitedcenter.com/assets/1/7/unitedcenter3.png">
+          <img id="venueImage" src="http://www.unitedcenter.com/assets/1/7/unitedcenter3.png">
 
        </div>
      
@@ -49,7 +50,6 @@
          <h3 class="text-left" id="venueCapacity">this is where it will display capacity</h3>
          <h3 class="text-left" id="venueStart">this is where it will display "Doors"</h3>
      </div>
-   </div>
 
    <!-- Current Product -->
    <div class="row">
@@ -58,6 +58,7 @@
          <div class="panel-body">
            <div class="row">
              <div class="col-sm-12 ">
+             
                <table class="table">
                  <thead>
                    <tr>
@@ -67,19 +68,13 @@
                      <th>Likes</th>
                    </tr>
                  </thead>
-                 <tbody>
+                 <tbody id="concertTable">
                    <tr>
-                     <td class="eventArtist"> Example 1</td>
-                     <td class="eventDate">Example 1</td>
-                     <td class="eventPrice">Example 1</td>
-                     <td class="eventLikes"> <img class="likeButton" src="assets/images/likeButton.png"> <span class ="displayLikes"> 0 likes</span> </td>
+                     <td class="eventArtist"> Loading </td>
+                     <td class="eventDate"> Loading </td>
+                     <td class="eventPrice"> Loading </td>
+                     <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-apinumber="1234" class="likeButton" data-number="0"><img src="assets/images/likeButton.png"> <span class ="displayLikes"></span> </a></td>
                    </tr> 
-                    <tr>
-                     <td class="eventArtist"> Example 2</td>
-                     <td class="eventDate">Example 2</td>
-                     <td class="eventPrice">Example 2</td>
-                     <td class="eventLikes">Example 2</td>
-                   </tr>    
                  </tbody>
                </table>
              </div>
@@ -89,6 +84,7 @@
      </div>
    </div>
 
+</div>
  <form>
    
      User Name
@@ -117,7 +113,7 @@
  </div>
 
  <!-- JavaScript -->
-<script src="chat.js"></script>
+<!--<script src="chat.js"></script> -->
 <script src="likeButton.js"></script>
 
 
