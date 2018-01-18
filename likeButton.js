@@ -48,8 +48,6 @@ $.ajax({
   for (let i=0; i<response.length; i++) { 
   concertHTML += `<tr id="${response[i].id}">
                    <td class="eventArtist"> ${response[i].displayName}</td>
-                   <td class="eventDate">${response[i].start.date}</td>
-                   <td class="eventPrice">${response[i].id}</td>
                    <td class="eventLikes"><a href="#" data-type="concert" data-liked=false data-id="${response[i].id}" class="likeButton" data-number=0><img src="assets/images/likeButton.png"> <span class="displayLikes"></span> </a></td>
                    </tr>`;
 
