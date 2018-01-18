@@ -2,6 +2,17 @@
 var venueHTML = '';
 var venueSongKickId = 1284;
 
+var db = firebase.database();
+var venueName = 'Riviera';
+var likeType = '';
+var currentNum = "";
+var initialVenueLiked = 0;
+var initialConcertLiked = 0;
+var concertLikeCounter = initialConcertLiked;
+var venueLikeCounter = initialVenueLiked;
+var concertId = $(this).data('id');
+let currentLike = 0;
+
 $.ajax({
   url: "http://api.songkick.com/api/3.0/venues/1284.json?apikey=awz1NrZkcMbHwia9",
   method: "GET"
@@ -15,12 +26,15 @@ $.ajax({
           <a href="#" class="venueLikeButton" data-id="${response.id}" data-type="venue" data-liked=false data-number="0"><img src="assets/images/likeButton.png"><span class="displayVenueLikes"></span></a>
           <div>
               <h3 class="text-left" id="venueCapacity">Venue Capacity: ${response.capacity}</h3>
-              <h3 class="text-left" id="venueStart">Info?</h3>
+              <h3 class="text-left" id="venueDescription">${response.description}</h3>
           </div>
        </div>
        <div class="col-lg-4">
-          <img id="venueImage" src="http://www.unitedcenter.com/assets/1/7/unitedcenter3.png">
+          <img id="venueImage" src="assets/images/${venueName}.jpg" alt="venueName"">
        </div> 
+
+
+       
     `
 
   $("#venueInformation").html(venueHTML);
@@ -64,16 +78,7 @@ $.ajax({
 
 //Your key is: awz1NrZkcMbHwia9
 
-var db = firebase.database();
-var venueName = 'united_center';
-var likeType = '';
-var currentNum = "";
-var initialVenueLiked = 0;
-var initialConcertLiked = 0;
-var concertLikeCounter = initialConcertLiked;
-var venueLikeCounter = initialVenueLiked;
-var concertId = $(this).data('id');
-let currentLike = 0;
+
 
 //PARAMETER INFORMATION:
 // function getParameterByName(name, url) {
