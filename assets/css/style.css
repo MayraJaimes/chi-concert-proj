@@ -117,3 +117,7 @@ a:link, a:visited, a:hover, a:active {
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
+
+b {
+	color: red;
+}
