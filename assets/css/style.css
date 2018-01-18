@@ -5,14 +5,19 @@
 	position: static;
 }
 
-#venueImage {
+#venueImage img {
 	width: 350px;
 	height: 250px;
 	float: right;
 	margin-right: 50px;
 	position: absolute;
 	margin-left: -20px;
-	margin-top: -10px;
+	margin-top: -30px;
+}
+
+.concertImage img {
+	width: 246px;
+	height: 177px;
 }
 
 #venueDescription {
@@ -23,10 +28,8 @@
 	background-color: #FFFF00;
 }
 
-img {
-	
-	width: 320px;
-	height: 175px;
+.top {
+	margin-top: 20px;
 }
 
 .info {
