@@ -1,6 +1,13 @@
-// ARIANNA: This is Mayra. I added the config and initialize in the firebase.js and 
-//linked it in the venues.html so that we arent initializing 
-//it multiple times since that was giving me errors.
+var config = {
+   apiKey: "AIzaSyD6CYwGfDAf5Tlo7QRyxSdo6V6ctbOXFpM",
+   authDomain: "concert-forum.firebaseapp.com",
+   databaseURL: "https://concert-forum.firebaseio.com",
+   projectId: "concert-forum",
+   storageBucket: "concert-forum.appspot.com",
+   messagingSenderId: "429361418902"
+ };
+ 
+ firebase.initializeApp(config);
 
  var database = firebase.database();
 
