@@ -14,12 +14,11 @@
  
  <!-- Firebase Reference -->
  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
- <script src="firebase.js"></script>
 
+ <script src="assets/scripts/getParameters.js"></script>
+ 
  <link rel="stylesheet" href="assets/css/style.css">
  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-
-
 
 </head>
 
@@ -41,8 +40,25 @@
    <div class="jumbotron">
      
      <div class="row" id="venueInformation">
+
+         <div class="col-lg-8" >
+              <h1 id="venueName" class="text-left"></h1>
+              <a href="#" class="venueLikeButton" data-id="" data-type="venue" data-liked="false" data-number="0"><img src="assets/images/likeButton.png"><span></span></a>
+              <div>
+                  <h3 class="text-left" id="venueCapacity">Venue Capacity: <span></span></h3>
+                  <h3 class="text-left" id="venueDescription"></h3>
+              </div>
+        </div>
+        
+        <div class="col-lg-4">
+        <div id="venueImage">
+          
+        </div>
+      </div>
+
     </div>
-  </div>
+
+    </div>
 
    <!-- Current Product -->
    <div class="row">
@@ -69,7 +85,6 @@
      </div>
    </div>
 
-</div>
  <form>
    
      <p id="nameTitle">Name :</p>
@@ -83,24 +98,20 @@
      <br>
 
      <button id="sendMessage">Submit</button>
- 
 
    </form>  
 
      <div id="chatoutputs">
  
- 
      <div id="comment-display"></div>
  
      </div>
-
 
  </div>
 
  <!-- JavaScript -->
 <script src="chat.js"></script>
-<script src="likeButton.js"></script>
-
+<script src="venues.js"></script>
 
 </body>
 
