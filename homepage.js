@@ -79,7 +79,10 @@ var milleniumPark = new Venue("Pritzker Pavillion","201 E Randolph St, Chicago, 
 //  new venues go here;
 
 // add new venue object names to the end of venueArray
-var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater];
+var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater, bottomLounge, tinleyPark, 
+					hideout, buddyGuys, reggies, emptyBottle, oldTown, lincolnHall, doubleDoor,
+					parkWest, vic, milleniumPark
+					];
 //add new venue object properties to the end of attrArray
 var attrArray = [name, address, website, image];
 //array for selectors generated in getSelectors function.
