@@ -32,7 +32,8 @@ function Venue(name, address, website, image, id)
 }
 
 
-// Matt I think it would be nice to put it like this? just my suggestion.
+// Matt I think it would be nice to put it like this? just my suggestion. 
+//You dont really need the constructor and new venue.
 // const venues = [
 // 	{
 // 		name: 'Riviera',
@@ -55,7 +56,7 @@ var icons = ["assets/images/unitedCenter.jpg", "assets/images/AragonBallroom.jpg
 var uc = new Venue("United Center", 
 	"1901 W Madison St, Chicago, IL 60612", 
 	"www.unitedcenter.com", 
-	icons[0], 
+	"assets/images/521", 
 	"521")
 
 var aragon = new Venue("Aragon Ballroom",
@@ -209,7 +210,7 @@ function addInfo() {
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
 		
-		var newVenueDiv = `<a href="venues.html?venue=${event.id}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
+		var newVenueDiv = `<a href="venues.html?venue=${event.id}&imgsrc=${event.image}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
 							`<div class="panel panel-default">`+
 							`<div class="panel-heading">`+
 								`<h3 class="panel-title" id= "name${i}">${event.name}</h3></div>`+
@@ -220,10 +221,14 @@ function addInfo() {
 											`<div class="col-md-12 address" id="address${i}">${event.address}</div></div>`+
 										`<div class="row">`+
 										`<div class="col-md-6 website" id="website${i}">${event.website}</div></div></div>`+
+<<<<<<< HEAD
 
 
 
 									`<div class="col-md-6 image" <img src=“assets/images/unitedCenter.jpg” alt=“unitedCenter”>${event.image}</div></a>`;
+=======
+									`<div class="col-md-6 image" <img src=“${event.image}.jpg” alt=“unitedCenter”>${event.image}</div></a>`;
+>>>>>>> 07651eb... made changes to the html page to show pictures
 
 
 
