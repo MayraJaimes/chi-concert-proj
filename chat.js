@@ -43,7 +43,7 @@
   if (userName != null) {
 
 
-  $("#comment-display").prepend("<div></div>" + "User Name:" + " " + userName + "<div></div>" + message + "<div></div>");
+  $("#comment-display").prepend('<div id="newdiv">' + "<b>" + userName + ":" + "</b>" + " " + message + '</div>');
 
   }});
 

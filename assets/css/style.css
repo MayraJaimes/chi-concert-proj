@@ -38,7 +38,7 @@ h1, p {
 }
 
 #flagWhite {
-	height: 200px;
+	height: 220px;
 	width: 100%;
 	background: white;
 	position: static;
@@ -57,8 +57,6 @@ h1, p {
 	height: 30px;
 	background: #AFEEEE;
 	margin-top: 20px;
-	position: relative;
-	
 	position: relative;
 }
 
@@ -79,4 +77,45 @@ h1, p {
 a:link, a:visited, a:hover, a:active {
     text-decoration: none;
     color: black;
+}
+
+#nameTitle {
+	margin-left: 75px;
+	text-align: left;
+}
+
+#userName-input {
+	margin-left: 75px;
+}
+
+#messageTitle {
+	margin-left: 75px;
+	text-align: left;
+	margin-top: 10px;
+}
+
+#userMessage-input{
+	margin-left: 75px;
+}
+
+#chatoutputs {
+	background: white;
+	margin-top: ;
+	margin-left: 75px;
+	margin-right: 70px;
+	margin-bottom: 15px;
+	padding-left: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 20px;
+}
+
+#sendMessage {
+	margin-left: 75px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+b {
+	color: red;
 }
