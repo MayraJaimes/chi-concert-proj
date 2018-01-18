@@ -115,6 +115,7 @@ a:link, a:visited, a:hover, a:active {
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 5px;
+	border-color: #ddd;
 }
 
 #sendMessage {
@@ -125,4 +126,8 @@ a:link, a:visited, a:hover, a:active {
 
 b {
 	color: red;
+}
+
+#pageHeader {
+	background: white;
 }
