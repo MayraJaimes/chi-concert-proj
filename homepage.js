@@ -31,22 +31,24 @@ function Venue(name, address, website, image, id)
 	//addd new properties here
 }
 
-const venues = [
-	{
-		name: 'Riviera',
-		address: '4746 N Racine Ave, Chicago, IL 60640',
-		website: 'rivieratheatre.com',
-		image: '',
-		id: '1284'
-	},
-	{
-		name: 'United Center',
-		address: '4746 N Racine Ave, Chicago, IL 60640',
-		website: 'rivieratheatre.com',
-		image: '',
-		id: '1284'
-	}
-];
+
+// Matt I think it would be nice to put it like this? just my suggestion.
+// const venues = [
+// 	{
+// 		name: 'Riviera',
+// 		address: '4746 N Racine Ave, Chicago, IL 60640',
+// 		website: 'rivieratheatre.com',
+// 		image: '',
+// 		id: '1284'
+// 	},
+// 	{
+// 		name: 'United Center',
+// 		address: '4746 N Racine Ave, Chicago, IL 60640',
+// 		website: 'rivieratheatre.com',
+// 		image: '',
+// 		id: '1284'
+// 	}
+// ];
 
 var icons = ["assets/images/unitedCenter.jpg", "assets/images/AragonBallroom.jpg"]
 
