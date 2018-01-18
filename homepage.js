@@ -29,11 +29,13 @@ function Venue(name, address, website, image, apiname)
 	//addd new properties here
 }
 
+var icons = ["assets/images/unitedCenter.jpg", "assets/images/AragonBallroom.jpg"]
+
 var uc = new Venue("United Center", "1901 W Madison St, Chicago, IL 60612", 
-					"www.unitedcenter.com", "placeholder", "unitedcenter")
+					"www.unitedcenter.com", icons[0], "unitedcenter")
 
 var aragon = new Venue("Aragon Ballroom"," 1106 W Lawrence Ave, Chicago, IL 60640",
-					 "www.thearagonballroom.com", "placeholder", "aragonballroom");
+					 "www.thearagonballroom.com", icons[1], "aragonballroom");
 
 var metro = new  Venue("Metro","3730 N Clark St, Chicago, IL 60613","metrochicago.com","placeholder", "metro");
 
@@ -70,7 +72,7 @@ var parkWest = new Venue("Park West","322 W Armitage Ave, Chicago, IL 60614",
 						"https://www.parkwestchicago.com/","", "");
 var vic = new Venue("The Vic","3145 N Sheffield Ave, Chicago, IL 60657",
 					"https://www.victheatre.com/","", "");
-var milleniumPark = new Venue("","201 E Randolph St, Chicago, IL 60601",
+var milleniumPark = new Venue("Pritzker Pavillion","201 E Randolph St, Chicago, IL 60601",
 							"https://www.grantparkmusicfestival.com/the-music/2018season","", "");
 
 //  new venues go here;
@@ -127,7 +129,9 @@ function addInfo() {
 										`<div class="col-md-6 website" id="website${i}">${event.website}</div></div></div>`+
 
 
+
 									`<div class="col-md-6 image" <img src=“assets/images/unitedCenter.jpg” alt=“unitedCenter”>${event.image}</div></a>`;
+
 
 
 

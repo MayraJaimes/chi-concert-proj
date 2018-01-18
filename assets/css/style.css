@@ -38,7 +38,7 @@ h1, p {
 }
 
 #flagWhite {
-	height: 200px;
+	height: 220px;
 	width: 100%;
 	background: white;
 	position: static;
@@ -57,8 +57,6 @@ h1, p {
 	height: 30px;
 	background: #AFEEEE;
 	margin-top: 20px;
-	position: relative;
-	
 	position: relative;
 }
 
