@@ -30,43 +30,23 @@ function Venue(name, address, website, image, id)
 	//addd new properties here
 }
 
-
-// Matt I think it would be nice to put it like this? just my suggestion. 
-//You dont really need the constructor and new venue.
-// const venues = [
-// 	{
-// 		name: 'Riviera',
-// 		address: '4746 N Racine Ave, Chicago, IL 60640',
-// 		website: 'rivieratheatre.com',
-// 		image: '',
-// 		id: '1284'
-// 	},
-// 	{
-// 		name: 'United Center',
-// 		address: '4746 N Racine Ave, Chicago, IL 60640',
-// 		website: 'rivieratheatre.com',
-// 		image: '',
-// 		id: '1284'
-// 	}
-// ];
-
 var uc = new Venue("United Center", 
 	"1901 W Madison St, Chicago, IL 60612", 
 	"www.unitedcenter.com", 
 	"521", 
-	"521")
+	"521") 
 
 var aragon = new Venue("Aragon Ballroom",
 	" 1106 W Lawrence Ave, Chicago, IL 60640",
 	"www.thearagonballroom.com", 
 	"837", 
-	"837");
+	"837"); 
 
 var metro = new  Venue("Metro",
 	"3730 N Clark St, Chicago, IL 60613",
 	"metrochicago.com",
 	"1070", 
-	"1070");
+	"1070"); 
 
 var riviera = new  Venue("Riviera",
 	" 4746 N Racine Ave, Chicago, IL 60640",
@@ -78,7 +58,7 @@ var hob = new Venue("House of Blues",
 	"329 N Dearborn St, Chicago, IL 60654",
 	"houseofblues.com/chicago",
 	"621", 
-	"621");
+	"621"); 
 
 var chicagoTheater = new Venue("Chicago Theater", 
 	"175 N State St, Chicago, IL 60601", 
