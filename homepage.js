@@ -16,18 +16,37 @@ var name;
 var address;
 var website;
 var image;
+var id;
+
 
 // constructor object for new venues
-function Venue(name, address, website, image, apiname)
+function Venue(name, address, website, image, id)
 {
 	this.name = name;
 	
 	this.address = address;
 	this.website = website;
 	this.image = image;
-	this.apiname = apiname;
+	this.id = id;
 	//addd new properties here
 }
+
+const venues = [
+	{
+		name: 'Riviera',
+		address: '4746 N Racine Ave, Chicago, IL 60640',
+		website: 'rivieratheatre.com',
+		image: '',
+		id: '1284'
+	},
+	{
+		name: 'United Center',
+		address: '4746 N Racine Ave, Chicago, IL 60640',
+		website: 'rivieratheatre.com',
+		image: '',
+		id: '1284'
+	}
+];
 
 var icons = ["assets/images/unitedCenter.jpg", "assets/images/AragonBallroom.jpg"]
 
@@ -39,7 +58,7 @@ var aragon = new Venue("Aragon Ballroom"," 1106 W Lawrence Ave, Chicago, IL 6064
 
 var metro = new  Venue("Metro","3730 N Clark St, Chicago, IL 60613","metrochicago.com","placeholder", "metro");
 
-var riviera = new  Venue("Riviera"," 4746 N Racine Ave, Chicago, IL 60640","rivieratheatre.com","placeholder", "riviera");
+var riviera = new  Venue("Riviera"," 4746 N Racine Ave, Chicago, IL 60640","rivieratheatre.com","placeholder", "1284");
 
 var hob = new Venue("House of Blues", "329 N Dearborn St, Chicago, IL 60654","houseofblues.com/chicago","placeholder", "houseofblues");
 
@@ -84,7 +103,7 @@ var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater, bottomLounge,
 					parkWest, vic, milleniumPark
 					];
 //add new venue object properties to the end of attrArray
-var attrArray = [name, address, website, image];
+var attrArray = [name, address, website, image, id];
 //array for selectors generated in getSelectors function.
 var selectArray = [];
 //function to get selector names from length of venue array
@@ -115,7 +134,7 @@ function addInfo() {
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
 		
-		var newVenueDiv = `<a href="venues.html?venue=${event.apiname}&displayName=${event.name}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
+		var newVenueDiv = `<a href="venues.html?venue=${event.id}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
 							`<div class="panel panel-default">`+
 							`<div class="panel-heading">`+
 								`<h3 class="panel-title" id= "name${i}">${event.name}</h3></div>`+
