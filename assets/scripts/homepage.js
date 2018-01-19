@@ -41,112 +41,113 @@ function Venue(name, address, website, id)
 	this.id = id;
 	//addd new properties here
 }
+var directions = "https://www.google.com/maps/place/";
 
 var uc = new Venue("United Center", 
-	"1901 W Madison St, Chicago, IL 60612", 
+	directions+"United+Center", 
 	"http://www.unitedcenter.com", 
 	"521");
 
 var aragon = new Venue("Aragon Ballroom",
-	" 1106 W Lawrence Ave, Chicago, IL 60640",
+	directions+"Aragon+Ballroom",
 	"http://www.thearagonballroom.com", 
 	"837"); 
 
 var metro = new  Venue("Metro",
-	"3730 N Clark St, Chicago, IL 60613",
+	directions+"Metro",
 	"http://metrochicago.com",
 	"1070" ); 
 
-var riviera = new  Venue("Riviera",
-	" 4746 N Racine Ave, Chicago, IL 60640",
-	"rivieratheatre.com",
+var rivieraTheatre = new  Venue("Riviera Theatre",
+	directions+"Riviera+Theatre",
+	"http://rivieratheatre.com",
 	"1284" );
 
 var hob = new Venue("House of Blues", 
-	"329 N Dearborn St, Chicago, IL 60654",
+	directions+"House+of+Blues",
 	"http://houseofblues.com/chicago",
 	"621" ); 
 
-var chicagoTheater = new Venue("Chicago Theater", 
-	"175 N State St, Chicago, IL 60601", 
-	"http://chicago-theater.com", 
+var chicagoTheater = new Venue("Chicago Theatre", 
+	directions+"The+Chicago+Theatre+175 N State St, Chicago, IL 60601", 
+	"http://www.msg.com/the-chicago-theatre", 
 	"1021" );
 
 // added more venues
 var bottomLounge = new Venue("Bottom Lounge",
-	"1375 W Lake St, Chicago, IL 60607",
+	directions+"Bottom+Lounge",
 	"http://bottomlounge.com",
 	"17091" );
 
 var tinleyPark = new Venue("Hollywood Casino Amphitheatre",
-	"19100 Ridgeland Ave, Tinley Park, IL 60477",
+	directions+"Hollywood+Casion+Amphitheatre",
 	"http://www.tinleyparkamphitheater.com/",
 	"533");
 
 var hideout = new Venue("Hideout Chicago",
-	"1354 W Wabansia Ave, Chicago, IL 60642",
+	directions+"Hideout+Chicago",
 	"http//www.hideoutchicago.com/",
 	"259");
 
 var greenMill = new Venue("Green Mill Cocktail Lounge",
-	"4802 N Broadway St, Chicago, IL 60640",
+	directions+"Green+Mill+Cocktail+Lounge",
 	"http://greenmilljazz.com/",
 	"1153196");
 
 var schubas = new Venue("Schubas Tavern",
-	"3159 N Southport Ave, Chicago, IL 60657",
+	directions+"Schubas+Tavern",
 	"http://www.lh-st.com/",
 	"2133");
 
 var buddyGuys = new Venue("Buddy Guy's Legends",
-	"700 S Wabash Ave, Chicago, IL 60605",
+	directions+"Buddy+Guys+Legends",
 	"http://buddyguy.com/",
 	"2176");
 
 var reggies = new Venue("Reggies Rock Club",
-	"2109 S State St, Chicago, IL 60616",
+	directions+"Reggies+ 2109 S State St, Chicago, IL 60616",
 	"http://www.reggieslive.com",
 	"540136");
 
 var emptyBottle = new Venue("The Empty Bottle",
-	"1035 N Western Ave, Chicago, IL 60622",
+	directions+"The+Empty+Bottle",
 	"http://emptybottle.com/",
 	"251");
 
 var oldTown = new Venue("Old Town School of Folk Music",
-	"4544 N Lincoln Ave",
+	directions+"Old+Town+school+of+Folk+Music",
 	"http://www.oldtownschool.org/",
 	"361");
 
 var lincolnHall = new Venue("Lincoln Hall",
-	"2424 N Lincoln Ave, Chicago, IL 60614",
+	directions+"Lincoln+Hall",
 	"http://www.lh-st.com/",
 	"513326");
 
 var doubleDoor = new Venue("Double Door",
-	"1551 N Damen Ave, Chicago, IL 60622",
+	directions+"Double+Door",
 	"http://doubledoor.com/",
 	"6540");
 
 var parkWest = new Venue("Park West",
-	"322 W Armitage Ave, Chicago, IL 60614",
+	directions+"Park+West",
 	"http://www.parkwestchicago.com/",
 	"1406");
 
-var vic = new Venue("Vic Theater",
-	"3145 N Sheffield Ave, Chicago, IL 60657",
+var vic = new Venue("Vic Theatre",
+	directions+"Vic+Theatre",
 	"http://www.victheatre.com/",
 	"32409");
 
 var milleniumPark = new Venue("Pritzker Pavillion",
-	"201 E Randolph St, Chicago, IL 60601",
+	directions+"Pritzker+Pavillion",
 	"http://www.grantparkmusicfestival.com/the-music/2018season",
 	"2887023");
 
 //  new venues go here;
 
 // add new venue object names to the end of venueArray
-var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater, bottomLounge, tinleyPark, 
+var venueArray = [uc, aragon, metro, rivieraTheatre, hob, chicagoTheater, bottomLounge, tinleyPark, 
 					hideout, buddyGuys, reggies, emptyBottle, oldTown, lincolnHall, doubleDoor,
 					parkWest, vic, milleniumPark
 					];
@@ -191,7 +192,7 @@ function addInfo() {
 								`<div class="row">`+
 									`<div class="col-md-6">`+
 										`<div class="row">`+
-											`<div class="col-md-12 address" id="address${i}">${event.address}</div></div>`+
+											`<a href="${event.address}" target="_blank"><div class="col-md-12 address" id="address${i}">Directions</div></a></div>`+
 										`<div class="row">`+
 										`<div class="col-md-6 website" id="website${i}"><a href="${event.website}" target="_blank">Venue Website</a></div></div></div>`+
 									`${refDiv}<div class="col-md-6"> <div class="concertImage"><img src='assets/images/${event.id}.jpg' alt="${event.id}"/></div> </div></a></a>`;
