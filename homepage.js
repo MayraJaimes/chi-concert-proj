@@ -201,23 +201,7 @@ function addInfo() {
 											`<div class="col-md-12 address" id="address${i}">${event.address}</div></div>`+
 										`<div class="row">`+
 										`<div class="col-md-6 website" id="website${i}">${event.website}</div></div></div>`+
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-
-									`<div class="col-md-6 image" <img src=“assets/images/unitedCenter.jpg” alt=“unitedCenter”>${event.image}</div></a>`;
-=======
-									`<div class="col-md-6 image" <img src=“${event.image}.jpg” alt=“unitedCenter”>${event.image}</div></a>`;
->>>>>>> 07651eb... made changes to the html page to show pictures
-
-=======
-									`<div class="col-md-6 image"> <div><img src='assets/images/${event.image}.jpg' alt="${event.image}"/></div> </div></a>`;
->>>>>>> 3f1059b... was able to add more images
-=======
 									`<div class="col-md-6"> <div class="concertImage"><img src='assets/images/${event.image}.jpg' alt="${event.image}"/></div> </div></a>`;
->>>>>>> 7a4fe38... change the size of the images
 
 		//append new containers to .top(large html container)				
 		$(".top").append(newVenueDiv);
