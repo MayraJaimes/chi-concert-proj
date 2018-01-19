@@ -18,7 +18,6 @@ var website;
 var image;
 var id;
 
-
 // constructor object for new venues
 function Venue(name, address, website, image, id)
 {
@@ -30,11 +29,11 @@ function Venue(name, address, website, image, id)
 	//addd new properties here
 }
 
-var uc = new Venue("United Center", 
-	"1901 W Madison St, Chicago, IL 60612", 
-	"www.unitedcenter.com", 
-	"521", 
-	"521") 
+var uc = new Venue("United Center", //you can get this through API
+	"1901 W Madison St, Chicago, IL 60612", //you can get this through API
+	"www.unitedcenter.com", //you can get this through API
+	"521", //I am using this to reference the image. I save the image with the venue id number. 
+	"521") //the venue id number I got from the API I use this for the query string
 
 var aragon = new Venue("Aragon Ballroom",
 	" 1106 W Lawrence Ave, Chicago, IL 60640",
@@ -190,6 +189,8 @@ function addInfo() {
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
 		
+							//there is an <a> tag surrounding the specific venue section that
+							//when section clicked takes you to venue html with correct venue info 
 		var newVenueDiv = `<a href="venues.html?venue=${event.id}&imgsrc=${event.image}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
 							`<div class="panel panel-default">`+
 							`<div class="panel-heading">`+

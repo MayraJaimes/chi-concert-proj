@@ -1,3 +1,5 @@
+//I used this function for the query strings. I just got this off the internet and I reference it on the js files :)
+
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
