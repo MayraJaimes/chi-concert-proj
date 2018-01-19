@@ -44,6 +44,7 @@ var riviera = new  Venue("Riviera"," 4746 N Racine Ave, Chicago, IL 60640","rivi
 var hob = new Venue("House of Blues", "329 N Dearborn St, Chicago, IL 60654","houseofblues.com/chicago","placeholder", "houseofblues");
 
 var chicagoTheater = new Venue("Chicago Theater", "175 N State St, Chicago, IL 60601", "chicago-theater.com", "placeholder", "chicagotheater")
+
 // added more venues
 var bottomLounge = new Venue("Bottom Lounge"," 1375 W Lake St, Chicago, IL 60607",
 							"https://bottomlounge.com/","", "");
@@ -78,10 +79,7 @@ var milleniumPark = new Venue("Pritzker Pavillion","201 E Randolph St, Chicago, 
 //  new venues go here;
 
 // add new venue object names to the end of venueArray
-var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater, bottomLounge,
-				 tinleyPark, hideout, greenMill, schubas, buddyGuys, reggies, emptyBottle,
-				 oldTown, lincolnHall, doubleDoor, parkWest, vic, milleniumPark];
-
+var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater];
 //add new venue object properties to the end of attrArray
 var attrArray = [name, address, website, image];
 //array for selectors generated in getSelectors function.
@@ -114,9 +112,7 @@ function addInfo() {
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
 		
-		var newVenueDiv = `<div class="container venueBoxes">`+
-							`<a href="venues.html?venue=${event.apiname}&displayName=${event.name}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
-
+		var newVenueDiv = `<a href="venues.html?venue=${event.apiname}&displayName=${event.name}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
 							`<div class="panel panel-default">`+
 							`<div class="panel-heading">`+
 								`<h3 class="panel-title" id= "name${i}">${event.name}</h3></div>`+

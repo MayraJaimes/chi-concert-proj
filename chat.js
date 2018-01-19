@@ -1,7 +1,3 @@
-// ARIANNA: This is Mayra. I added the config and initialize in the firebase.js and 
-//linked it in the venues.html so that we arent initializing 
-//it multiple times since that was giving me errors.
-
  var database = firebase.database();
 
  var userName = "";
