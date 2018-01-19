@@ -10,13 +10,13 @@
  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
  <!-- Bootstrap CDN-->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
  <!-- Firebase Reference -->
  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
 
  <script src="assets/scripts/getParameters.js"></script>
- 
+
  <link rel="stylesheet" href="assets/css/style.css">
  <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
 
@@ -34,62 +34,45 @@
 </a>
 
 <div class="container" id="venuePage">
-  <br>
+  <div class="row" id="venueInformation">
+    <div class="col-xs-12" >
+      <div class="card">
+        <div class="card-img-top" id="venueImage" style="background-image: url(assets/images/placeholder.jpg)"></div>
 
-   <!-- Jumbotron Title -->
-   <div class="jumbotron">
-     
-     <div class="row" id="venueInformation">
-
-         <div class="col-lg-8" >
-              <h1 id="venueName" class="text-left"></h1>
-              <a href="#" class="venueLikeButton" data-id="" data-type="venue" data-liked="false" data-number="0"><img src="assets/images/likeButton.png"><span></span></a>
-              <div>
-                  <h3 class="text-left" id="venueCapacity">Venue Capacity: <span></span></h3>
-                  <h3 class="text-left" id="venueDescription"></h3>
-              </div>
-        </div>
-        
-        <div class="col-lg-4">
-        <div id="venueImage">
-          
+        <div class="card-body">
+          <div class="card-title">
+            <h5>
+              <span id="venueName">Venue</span><small >Venue Capacity: <span id="venueCapacity"></span></small><a href="#" class="venueLikeButton" data-id="" data-type="venue" data-liked="false" data-number="0"><img src="assets/images/likeButton.png"><span>1 likes</span></a>
+            </h5>
+          </div>
+          <p class="card-text" id="venueDescription"></p>
         </div>
       </div>
-
     </div>
-
-    </div>
+  </div>
 
    <!-- Current Product -->
-   <div class="row">
-     <div class="col-lg-12">
-       <div class="panel panel-default">
-         <div class="panel-body">
-           <div class="row">
-             <div class="col-sm-12 ">
-             
-               <table class="table">
-                 <thead>
-                   <tr>
-                     <th>Concerts</th>
-                     <th>Likes</th>
-                   </tr>
-                 </thead>
-                 <tbody id="concertTable"> 
-                 </tbody>
-               </table>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
 
- <form>
-   
+  <div class="row">
+    <div class="col-sm-12 table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Concerts</th>
+            <th>Likes</th>
+          </tr>
+        </thead>
+        <tbody id="concertTable">
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <form>
+
      <p id="nameTitle">Name :</p>
      <input type="text" id="userName-input">
- 
+
      <br>
 
      <p id="messageTitle">Message :</p>
@@ -99,16 +82,15 @@
 
      <button id="sendMessage">Submit</button>
 
-   </form>  
+   </form>
 
      <div id="chatoutputs">
- 
+
      <div id="comment-display"></div>
- 
+
      </div>
 
  </div>
-
  <!-- JavaScript -->
 <script src="assets/scripts/chat.js"></script>
 <script src="assets/scripts/venues.js"></script>
@@ -116,4 +98,3 @@
 </body>
 
 </html>
-

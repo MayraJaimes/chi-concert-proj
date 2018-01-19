@@ -26,15 +26,15 @@ function getConcerts(id) {
 }
 
 function buildVenueHTML(e, data) {
-  const $venueHeader = $("#venueInformation h1");
-  const $venueCapacity = $("#venueCapacity span");
+  const $venueHeader = $("#venueName");
+  const $venueCapacity = $("#venueCapacity");
   const $venueDescription = $("#venueDescription");
   const $venueImage = $("#venueImage");
 
   $venueHeader.text(data.displayName);
   $venueCapacity.text(data.capacity);
   $venueDescription.text(data.description);
-  $venueImage.html(`<img src="assets/images/${venueImage}.jpg" alt="${venueImage}"/>`);
+  $venueImage.css({backgroundImage: `url(assets/images/${venueImage}.jpg)`});
 
   setVenueLikes(data.id);
   getConcerts(data.id);

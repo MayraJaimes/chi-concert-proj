@@ -5,15 +5,12 @@
 	position: static;
 }
 
-#venueImage img {
-	width: 350px;
-	height: 250px;
-	float: right;
-	margin-right: 50px;
-	position: absolute;
-	margin-left: -20px;
-	margin-top: -30px;
+#venueImage {
+	height: 500px;
+	background-size: cover;
+	background-position: 50% 50%;
 }
+
 
 .concertImage img {
 	width: 246px;
@@ -77,7 +74,7 @@ h1, p {
 	margin-bottom: 10px;
 }
 
-.likeButton img, .venueLikeButton img { 
+.likeButton img, .venueLikeButton img {
 	width: 25px;
 	height: 25px;
 }
@@ -135,4 +132,44 @@ b {
 
 #pageHeader {
 	background: white;
+}
+
+.card {
+	margin: 40px 0;
+}
+
+.card-title {
+	margin: -140px -20px 50px;
+background: rgba(0, 0, 0, 0.6);
+padding: 20px;
+}
+
+.card-title h5 {
+	font-size: 36px;
+	color: #fff;
+}
+
+.card-title small {
+	display: block;
+	font-size: 14px;
+	width: 40%;
+	color: #ccc;
+}
+
+.card-text {
+	text-align: left;
+	margin: 20px 0;
+}
+
+a.venueLikeButton {
+	float: right;
+	margin-top: -46px;
+	font-size: 14px;
+	color: #000;
+	background: #fff;
+	padding: 10px;
+}
+
+.panel-default {
+	background: #fff;
 }
