@@ -189,7 +189,7 @@ function addInfo() {
 		 <a href="venues.html?venue=${event.id}&imgsrc=${event.id}"> <div class="card-img-top homepageIMG" style="background-image: url(assets/images/${event.id}.jpg)"></div></a>
 		  <div class="card-body">
 		    <h5 class="card-title">${event.name}</h5>
-		    <p class="card-text"><a href="${event.address}" target="_blank">Directions</a></p>
+		    <a href=“${event.address}” class=“btn btn-primary” target=“_blank”>Directions </a>
 		    <a href="venues.html?venue=${event.id}&imgsrc=${event.id}" class="btn btn-primary">Check Concerts</a>
 		  </div>
 		</div></div>`;
