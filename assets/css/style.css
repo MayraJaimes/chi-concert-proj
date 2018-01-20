@@ -82,7 +82,7 @@ h1, p {
 	margin-bottom: 0px;
 }
 
-#flagText a:hover {
+#flagText:hover {
 	text-decoration: none;
 }
 
@@ -97,29 +97,29 @@ a:link, a:visited, a:hover, a:active {
 }
 
 #nameTitle {
-	margin-left: 75px;
+	margin-left: 5px;
 	text-align: left;
 }
 
 #userName-input {
-	margin-left: 75px;
+	margin-left: 5px;
 }
 
 #messageTitle {
-	margin-left: 75px;
+	margin-left: 5px;
 	text-align: left;
 	margin-top: 10px;
 }
 
 #userMessage-input{
-	margin-left: 75px;
+	margin-left: 5px;
 }
 
 #chatoutputs {
 	background: white;
 	margin-top: ;
-	margin-left: 75px;
-	margin-right: 70px;
+	margin-left: 5px;
+	margin-right: 90px;
 	margin-bottom: 15px;
 	padding-left: 20px;
 	padding-top: 15px;
@@ -129,11 +129,12 @@ a:link, a:visited, a:hover, a:active {
 	border-width: 1px;
 	border-radius: 5px;
 	border-color: #ddd;
+	width: 98%;
 }
 
 #sendMessage {
-	margin-left: 75px;
-	margin-top: 10px;
+	margin-left: 10px;
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
@@ -189,7 +190,7 @@ padding: 20px;
 
 #venuePage .card-text {
 	text-align: left;
-	margin: 20px 0;
+	
 }
 
 #venuePage a.venueLikeButton {
@@ -203,4 +204,24 @@ padding: 20px;
 
 #venuePage .panel-default {
 	background: #fff;
+}
+
+.table {
+	background: white;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ddd;
+	width: 1140px;
+	margin-left: -15px;
+}
+
+#songkickLogo {
+	height: 70px;
+	width: 200px;
+	position: relative;
+}
+
+#footerText {
+	text-align: center;
+	position: relative;
 }
