@@ -26,18 +26,9 @@ firebase.initializeApp(config);
 
     localStorage.setItem("name", name);
 
-    if (name != null) {
-
-      
+        
     $("#displayName").text("Logged In: " + localStorage.getItem("name"));
-  }
-
-    else {
-
-      $("#displayName").text("");
-
-    }
-
+  
     $("#loginName").val("");
 
     console.log(name);
