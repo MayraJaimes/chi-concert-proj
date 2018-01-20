@@ -119,7 +119,7 @@ $("#venuePage").on("click", ".likeButton", function(event) {
     $this.data("number", currentNum);
     $this.data("liked", true);
     $this.html(
-      "<img src='assets/images/likeButton.png'>" + currentNum + " likes"
+      "<img src='assets/images/userLiked.png'>" + currentNum + " likes"
     );
 
 //once you click on the like button IF it IS liked already (data-liked=true) it grabs the data-number value and subtracts one to it, then sets that number back as the data-number value, and changes the data-liked value to false.

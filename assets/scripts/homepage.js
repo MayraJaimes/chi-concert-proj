@@ -1,18 +1,24 @@
-
 var name;
 var address;
 var website;
 var id;
 
-// constructor object for new venues
-function Venue(name, address, website, id)
-{
-	this.name = name;
-	this.address = address;
-	this.website = website;
-	this.id = id;
-	//addd new properties here
-}
+
+// const venues = [
+// 	{
+// 		name: "United Center",
+// 		address: "1901 W Madison St, Chicago, IL 60612",
+// 		website: "https:www.unitedcenter.com",
+// 		id: ""
+// 	},
+// 	{
+// 		name: "Chicago Theater",
+// 		address: ""
+// 	},
+// ];
+
+
+
 // constructor object for new venues
 function Venue(name, address, website, id)
 {
@@ -167,6 +173,7 @@ function addInfo() {
 
 
 
+
 		newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
 		  <div class="card-img-top" style="background-image: url(assets/images/${event.id}.jpg)"></div>
 		  <div class="card-body">
@@ -177,6 +184,7 @@ function addInfo() {
 		</div></div>`;
 
 		//append new containers to .top(large html container)
+
 
 	}
 	$(".top").html(newVenueDiv);
