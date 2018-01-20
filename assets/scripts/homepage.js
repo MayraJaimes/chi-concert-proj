@@ -190,11 +190,11 @@ function addInfo() {
 
 
 		newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
-		  <div class="card-img-top" style="background-image: url(assets/images/${event.image}.jpg)"></div>
+		  <div class="card-img-top" style="background-image: url(assets/images/${event.id}.jpg)"></div>
 		  <div class="card-body">
 		    <h5 class="card-title">${event.name}</h5>
-		    <p class="card-text">${event.address}</p>
-		    <a href="venues.html?venue=${event.id}&imgsrc=${event.image}" class="btn btn-primary">Check Concerts</a>
+		    <p class="card-text"><a href="${event.address}" target="_blank">Directions</a></p>
+		    <a href="venues.html?venue=${event.id}&imgsrc=${event.id}" class="btn btn-primary">Check Concerts</a>
 		  </div>
 		</div></div>`;
 
