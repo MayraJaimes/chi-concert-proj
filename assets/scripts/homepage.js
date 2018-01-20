@@ -28,6 +28,17 @@ function Venue(name, address, website, id)
 	this.id = id;
 	//addd new properties here
 }
+
+// constructor object for new venues
+function Venue(name, address, website, id)
+{
+	this.name = name;
+	this.address = address;
+	this.website = website;
+	this.id = id;
+	//addd new properties here
+}
+
 var directions = "https://www.google.com/maps/place/";
 
 var uc = new Venue("United Center", 
