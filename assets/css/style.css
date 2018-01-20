@@ -206,3 +206,16 @@ padding: 20px;
 #venuePage .panel-default {
 	background: #fff;
 }
+.card-img-top {
+	width: 348px;
+	height: 200px;
+}
+
+.card:hover {
+	overflow: hidden;
+}
+
+.card-img-top:hover {
+	transform: scale(1.2);
+	overflow: hidden;
+}
