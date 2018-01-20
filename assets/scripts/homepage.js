@@ -15,150 +15,138 @@ var database = firebase.database();
 var name;
 var address;
 var website;
-var image;
 var id;
 
 // constructor object for new venues
-function Venue(name, address, website, image, id)
+function Venue(name, address, website, id)
 {
 	this.name = name;
 	this.address = address;
 	this.website = website;
-	this.image = image;
 	this.id = id;
 	//addd new properties here
 }
+// constructor object for new venues
+function Venue(name, address, website, id)
+{
+	this.name = name;
+	this.address = address;
+	this.website = website;
+	this.id = id;
+	//addd new properties here
+}
+var directions = "https://www.google.com/maps/place/";
 
-var uc = new Venue("United Center", //you can get this through API
-	"1901 W Madison St, Chicago, IL 60612", //you can get this through API
-	"www.unitedcenter.com", //you can get this through API
-	"521", //I am using this to reference the image. I save the image with the venue id number. 
-	"521") //the venue id number I got from the API I use this for the query string
+var uc = new Venue("United Center", 
+	directions+"United+Center", 
+	"http://www.unitedcenter.com", 
+	"521");
 
 var aragon = new Venue("Aragon Ballroom",
-	" 1106 W Lawrence Ave, Chicago, IL 60640",
-	"www.thearagonballroom.com", 
-	"837", 
+	directions+"Aragon+Ballroom",
+	"http://www.thearagonballroom.com", 
 	"837"); 
 
 var metro = new  Venue("Metro",
-	"3730 N Clark St, Chicago, IL 60613",
-	"metrochicago.com",
-	"1070", 
-	"1070"); 
+	directions+"Metro",
+	"http://metrochicago.com",
+	"1070" ); 
 
-var riviera = new  Venue("Riviera",
-	" 4746 N Racine Ave, Chicago, IL 60640",
-	"rivieratheatre.com",
-	"1284", 
-	"1284");
+var rivieraTheatre = new  Venue("Riviera Theatre",
+	directions+"Riviera+Theatre",
+	"http://rivieratheatre.com",
+	"1284" );
 
 var hob = new Venue("House of Blues", 
-	"329 N Dearborn St, Chicago, IL 60654",
-	"houseofblues.com/chicago",
-	"621", 
-	"621"); 
+	directions+"House+of+Blues",
+	"http://houseofblues.com/chicago",
+	"621" ); 
 
-var chicagoTheater = new Venue("Chicago Theater", 
-	"175 N State St, Chicago, IL 60601", 
-	"chicago-theater.com", 
-	"1021", 
-	"1021")
+var chicagoTheater = new Venue("Chicago Theatre", 
+	directions+"The+Chicago+Theatre+175 N State St, Chicago, IL 60601", 
+	"http://www.msg.com/the-chicago-theatre", 
+	"1021" );
 
 // added more venues
 var bottomLounge = new Venue("Bottom Lounge",
-	"1375 W Lake St, Chicago, IL 60607",
-	"https://bottomlounge.com/",
-	"17091", 
-	"17091");
+	directions+"Bottom+Lounge",
+	"http://bottomlounge.com",
+	"17091" );
 
 var tinleyPark = new Venue("Hollywood Casino Amphitheatre",
-	"19100 Ridgeland Ave, Tinley Park, IL 60477",
-	"www.tinleyparkamphitheater.com/",
-	"533", 
+	directions+"Hollywood+Casion+Amphitheatre",
+	"http://www.tinleyparkamphitheater.com/",
 	"533");
 
 var hideout = new Venue("Hideout Chicago",
-	"1354 W Wabansia Ave, Chicago, IL 60642",
-	"https://www.hideoutchicago.com/",
-	"259", 
+	directions+"Hideout+Chicago",
+	"http//www.hideoutchicago.com/",
 	"259");
 
 var greenMill = new Venue("Green Mill Cocktail Lounge",
-	"4802 N Broadway St, Chicago, IL 60640",
-	"greenmilljazz.com/",
-	"1153196", 
+	directions+"Green+Mill+Cocktail+Lounge",
+	"http://greenmilljazz.com/",
 	"1153196");
 
 var schubas = new Venue("Schubas Tavern",
-	"3159 N Southport Ave, Chicago, IL 60657",
-	"www.lh-st.com/",
-	"2133", 
+	directions+"Schubas+Tavern",
+	"http://www.lh-st.com/",
 	"2133");
 
 var buddyGuys = new Venue("Buddy Guy's Legends",
-	"700 S Wabash Ave, Chicago, IL 60605",
-	"buddyguy.com/",
-	"2176", 
+	directions+"Buddy+Guys+Legends",
+	"http://buddyguy.com/",
 	"2176");
 
 var reggies = new Venue("Reggies Rock Club",
-	"2109 S State St, Chicago, IL 60616",
-	"https://www.reggieslive.com",
-	"540136", 
+	directions+"Reggies+ 2109 S State St, Chicago, IL 60616",
+	"http://www.reggieslive.com",
 	"540136");
 
 var emptyBottle = new Venue("The Empty Bottle",
-	"1035 N Western Ave, Chicago, IL 60622",
-	"emptybottle.com/",
-	"251", 
+	directions+"The+Empty+Bottle",
+	"http://emptybottle.com/",
 	"251");
 
 var oldTown = new Venue("Old Town School of Folk Music",
-	"4544 N Lincoln Ave",
-	"https://www.oldtownschool.org/",
-	"361", 
+	directions+"Old+Town+school+of+Folk+Music",
+	"http://www.oldtownschool.org/",
 	"361");
 
 var lincolnHall = new Venue("Lincoln Hall",
-	"2424 N Lincoln Ave, Chicago, IL 60614",
-	"www.lh-st.com/",
-	"513326", 
+	directions+"Lincoln+Hall",
+	"http://www.lh-st.com/",
 	"513326");
 
 var doubleDoor = new Venue("Double Door",
-	"1551 N Damen Ave, Chicago, IL 60622",
-	"doubledoor.com/",
-	"6540",
+	directions+"Double+Door",
+	"http://doubledoor.com/",
 	"6540");
 
 var parkWest = new Venue("Park West",
-	"322 W Armitage Ave, Chicago, IL 60614",
-	"https://www.parkwestchicago.com/",
-	"1406",	
+	directions+"Park+West",
+	"http://www.parkwestchicago.com/",
 	"1406");
 
-var vic = new Venue("Vic Theater",
-	"3145 N Sheffield Ave, Chicago, IL 60657",
-	"https://www.victheatre.com/",
-	"32409", 
+var vic = new Venue("Vic Theatre",
+	directions+"Vic+Theatre",
+	"http://www.victheatre.com/",
 	"32409");
 
 var milleniumPark = new Venue("Pritzker Pavillion",
-	"201 E Randolph St, Chicago, IL 60601",
-	"https://www.grantparkmusicfestival.com/the-music/2018season",
-	"2887023", 
+	directions+"Pritzker+Pavillion",
+	"http://www.grantparkmusicfestival.com/the-music/2018season",
 	"2887023");
 
 //  new venues go here;
 
 // add new venue object names to the end of venueArray
-var venueArray = [uc, aragon, metro, riviera, hob, chicagoTheater, bottomLounge, tinleyPark, 
+var venueArray = [uc, aragon, metro, rivieraTheatre, hob, chicagoTheater, bottomLounge, tinleyPark, 
 					hideout, buddyGuys, reggies, emptyBottle, oldTown, lincolnHall, doubleDoor,
 					parkWest, vic, milleniumPark
 					];
 //add new venue object properties to the end of attrArray
-var attrArray = [name, address, website, image, id];
+var attrArray = [name, address, website, id];
 //array for selectors generated in getSelectors function.
 var selectArray = [];
 //function to get selector names from length of venue array
@@ -193,11 +181,11 @@ function addInfo() {
 
 
 		newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
-		  <div class="card-img-top" style="background-image: url(assets/images/${event.image}.jpg)"></div>
+		  <div class="card-img-top" style="background-image: url(assets/images/${event.id}.jpg)"></div>
 		  <div class="card-body">
 		    <h5 class="card-title">${event.name}</h5>
-		    <p class="card-text">${event.address}</p>
-		    <a href="venues.html?venue=${event.id}&imgsrc=${event.image}" class="btn btn-primary">Check Concerts</a>
+		    <p class="card-text"><a href="${event.address}" target="_blank">Directions</a></p>
+		    <a href="venues.html?venue=${event.id}&imgsrc=${event.id}" class="btn btn-primary">Check Concerts</a>
 		  </div>
 		</div></div>`;
 
