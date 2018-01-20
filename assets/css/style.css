@@ -11,7 +11,6 @@
 	background-position: 50% 50%;
 }
 
-
 .concertImage img {
 	width: 246px;
 	height: 177px;
@@ -37,12 +36,6 @@
 h1, p {
 	text-align: center;
 }
-
-body {
-	background: #FFF8DC;
-}
-
-
 
 #flagWhite {
 	border-top: 10px solid #afeeee;
@@ -84,7 +77,6 @@ body {
 	width: 25px;
 	height: 25px;
 }
-
 
 a:link, a:visited, a:hover, a:active {
     text-decoration: none;
@@ -163,8 +155,6 @@ b {
 #venuePage .card {
 	margin: 40px 0;
 }
-
-
 
 #venuePage .card-title {
 	margin: -140px -20px 50px;
