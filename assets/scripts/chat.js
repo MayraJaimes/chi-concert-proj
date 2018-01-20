@@ -16,6 +16,46 @@ firebase.initializeApp(config);
 
  var message = "";
 
+ $("#loginNameButton").on("click", function(event){
+    event.preventDefault();
+
+
+    console.log("Login Button is working");
+
+
+    var name = $("#loginName").val().trim();
+
+    localStorage.clear();
+
+    localStorage.setItem("name", name);
+
+      
+    $("#displayName").append("Logged In: " + localStorage.getItem("name"));
+
+    $("#loginName").val("");
+
+    console.log(name);
+
+
+    });
+
+    $("#displayName").append(" " + localStorage.getItem("name"));
+
+
+
+  $("#logoffButton").on("click", function(event){
+    event.preventDefault();
+
+
+    console.log("Logoff Button is working");
+
+        localStorage.clear();
+        
+        $("#displayName").text("");
+
+    
+    });
+
  //button for adding new user info
  $("#sendMessage").on("click", function(event){
      event.preventDefault();

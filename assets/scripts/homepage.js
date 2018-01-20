@@ -1,18 +1,3 @@
-var config = {
-    apiKey: "AIzaSyCXjft2kReyOPJVDnJci8SvwLzS9DjsOL0",
-    authDomain: "class-concert-project.firebaseapp.com",
-    databaseURL: "https://class-concert-project.firebaseio.com",
-    projectId: "class-concert-project",
-    storageBucket: "class-concert-project.appspot.com",
-    messagingSenderId: "623152189871"
-};
- 
-firebase.initializeApp(config);
-
-
-var database = firebase.database();
-
-//venue variables/ info that we want to add to each object;
 var name;
 var address;
 var website;
