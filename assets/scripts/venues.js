@@ -1,9 +1,10 @@
-//var venueId = $(this).attr("data-id");
 let $d = $(document);
 var db = firebase.database();
+//I run the getParameterByName in this page to use the Query Strings
 var venueId = getParameterByName("venue");
 var venueImage = getParameterByName('imgsrc');
 
+//getting venue information from API. Ajax call.
 function getVenue(id) {
   $.ajax({
     url: `http://api.songkick.com/api/3.0/venues/${id}.json?apikey=awz1NrZkcMbHwia9`,
@@ -13,6 +14,7 @@ function getVenue(id) {
   });
 }
 
+//getting concert information from API. Ajax call.
 function getConcerts(id) {
   $.ajax({
     url:
@@ -25,6 +27,7 @@ function getConcerts(id) {
   });
 }
 
+//Dynamically building the HTML that displays the different venues
 function buildVenueHTML(e, data) {
   const $venueHeader = $("#venueName");
   const $venueCapacity = $("#venueCapacity");
@@ -37,9 +40,11 @@ function buildVenueHTML(e, data) {
   $venueImage.css({backgroundImage: `url(assets/images/${venueImage}.jpg)`});
 
   setVenueLikes(data.id);
+  //calling the function to get information about concerts from the API
   getConcerts(data.id);
 }
 
+//Dynamically building the HTML that displays the different concerts
 function buildConcertsHTML(e, data) {
   let $concertTable = $("#concertTable");
   let concertHTML = "";
@@ -61,10 +66,9 @@ function buildConcertsHTML(e, data) {
   }
 }
 
+//this function tracks if there is a change in the venue Likes to save them and display correct information
 function setVenueLikes(id) {
-  db.ref("likes/venues/" + id).on(
-    "value",
-    function(snapshot) {
+  db.ref("likes/venues/" + id).on("value",function(snapshot) {
       let likes =
         snapshot.val() && snapshot.val().venueLikeCount
           ? snapshot.val().venueLikeCount
@@ -78,10 +82,9 @@ function setVenueLikes(id) {
   );
 }
 
+//this function tracks if there is a change in the venue Likes to save them and display correct information
 function setConcertLikes(id) {
-  db.ref("likes/concerts/" + id).on(
-    "value",
-    function(snapshot) {
+  db.ref("likes/concerts/" + id).on("value", function(snapshot) {
       let likes =
         snapshot.val() && snapshot.val().concertLikeCount
           ? snapshot.val().concertLikeCount
@@ -96,6 +99,7 @@ function setConcertLikes(id) {
   );
 }
 
+//event listener that waits for the API information to be trieved before builting the HTML
 $d.on("venue:loaded", buildVenueHTML);
 $d.on("concerts:loaded", buildConcertsHTML);
 
@@ -106,14 +110,20 @@ $("#venuePage").on("click", ".likeButton", function(event) {
   let likes = 0;
   let liked = $this.data("liked");
 
+
+//once you click on the like button IF its not liked already (data-liked=false) it grabs the data-number value and adds one to it, then sets that number back as the data-number value, and changes the data-liked value to true.
+
   if (!liked) {
     currentNum = $this.data("number");
     currentNum++;
     $this.data("number", currentNum);
     $this.data("liked", true);
     $this.html(
-      "<img src='assets/images/likeButton.png'>" + currentNum + " likes"
+      "<img src='assets/images/userLiked.png'>" + currentNum + " likes"
     );
+
+//once you click on the like button IF it IS liked already (data-liked=true) it grabs the data-number value and subtracts one to it, then sets that number back as the data-number value, and changes the data-liked value to false.
+
   } else {
     currentNum = $this.data("number");
     currentNum--;
@@ -124,11 +134,15 @@ $("#venuePage").on("click", ".likeButton", function(event) {
     );
   }
 
+//if the data-type=venue then it will set the new information in the database under the venueID
+//This way every concert will have their data stored separately from each other.
   if ($this.data("type") === "venue") {
     likes = $this.data("number");
     db.ref("likes/venues/" + venueId).set({
       venueLikeCount: likes
     });
+
+//if the data-type=conert then it will set the new information in the database under the concertID. This way every concert will have their data stored separately from each other.
   } else {
     let concertId = $this.data("id");
     likes = $this.data("number");

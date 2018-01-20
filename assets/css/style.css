@@ -11,14 +11,13 @@
 	background-position: 50% 50%;
 }
 
-.venueSubheading {
-	width: 100%;
-}
-
-
 .concertImage img {
 	width: 246px;
 	height: 177px;
+}
+
+.venueSubheading {
+	width: 100%;
 }
 
 #venueDescription {
@@ -40,19 +39,17 @@
 
 h1, p {
 	text-align: center;
-
-}
-
-#colorBody {
-	background: #FFF8DC;
 }
 
 #flagWhite {
-	height: 220px;
-	width: 100%;
+	border-top: 10px solid #afeeee;
+	border-bottom: 10px solid #afeeee;
 	background: white;
-	position: static;
-	padding-top: 20px;
+	padding: 0 10px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: 0 2px 14px #777;
 }
 
 #flagBlueOne {
@@ -70,19 +67,20 @@ h1, p {
 	position: relative;
 }
 
-#flagText {
+#flagText a{
 	color: red;
 	font-family: 'Dancing Script', cursive;
 	font-size: 60px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+}
+
+#flagText a:hover {
+	text-decoration: none;
 }
 
 .likeButton img, .venueLikeButton img {
 	width: 25px;
 	height: 25px;
 }
-
 
 a:link, a:visited, a:hover, a:active {
     text-decoration: none;
@@ -138,34 +136,54 @@ b {
 	background: white;
 }
 
-.card {
+#homepage .card {
+	margin-bottom: 30px;
+}
+
+#homepage .card-img-top {
+	height: 200px;
+	background-size: cover;
+}
+
+#homepage .card-text {
+	text-align: left;
+	height: 80px;
+}
+
+#homepage .card a {
+	background: #B24200;
+	border: 1px solid #FF5E00;
+	color: #fff;
+}
+
+#venuePage .card {
 	margin: 40px 0;
 }
 
-.card-title {
+#venuePage .card-title {
 	margin: -140px -20px 50px;
 background: rgba(0, 0, 0, 0.6);
 padding: 20px;
 }
 
-.card-title h5 {
+#venuePage .card-title h5 {
 	font-size: 36px;
 	color: #fff;
 }
 
-.card-title small {
+#venuePage .card-title small {
 	display: block;
 	font-size: 14px;
 	width: 40%;
 	color: #ccc;
 }
 
-.card-text {
+#venuePage .card-text {
 	text-align: left;
 	margin: 20px 0;
 }
 
-a.venueLikeButton {
+#venuePage a.venueLikeButton {
 	float: right;
 	margin-top: -46px;
 	font-size: 14px;
@@ -174,6 +192,6 @@ a.venueLikeButton {
 	padding: 10px;
 }
 
-.panel-default {
+#venuePage .panel-default {
 	background: #fff;
 }
