@@ -24,6 +24,7 @@ function getConcerts(id) {
     method: "GET"
   }).done(function(response) {
     $d.trigger("concerts:loaded", response.resultsPage.results);
+        console.log(response.resultsPage.results);
   });
 }
 
@@ -51,7 +52,7 @@ function buildConcertsHTML(e, data) {
   let events = data.event;
   for (let i = 0; i < events.length; i++) {
     concertHTML = `<tr id="${events[i].id}">
-                      <td class="eventArtist"> ${events[i].displayName}</td>
+                      <td class="eventArtist"><a href="${events[i].uri}" target="_blank"> ${events[i].displayName}</a></td>
                       <td class="eventLikes">
                         <a href="#" events-type="concert" data-liked=false data-id="${
                           events[i].id
@@ -60,7 +61,7 @@ function buildConcertsHTML(e, data) {
                         </a>
                       </td>
                     </tr>`;
-
+                        console.log(events[i].uri);
     $concertTable.append(concertHTML);
     setConcertLikes(events[i].id);
   }
