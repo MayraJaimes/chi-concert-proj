@@ -1,13 +1,14 @@
-// Initialize Firebase
 var config = {
-apiKey: "AIzaSyDIlnbkpqY2Eg-QNtpjUBcse4t5kpX8ICU",
-authDomain: "chicago-concert-project.firebaseapp.com",
-databaseURL: "https://chicago-concert-project.firebaseio.com",
-projectId: "chicago-concert-project",
-storageBucket: "chicago-concert-project.appspot.com",
-messagingSenderId: "655657671055"
+    apiKey: "AIzaSyCXjft2kReyOPJVDnJci8SvwLzS9DjsOL0",
+    authDomain: "class-concert-project.firebaseapp.com",
+    databaseURL: "https://class-concert-project.firebaseio.com",
+    projectId: "class-concert-project",
+    storageBucket: "class-concert-project.appspot.com",
+    messagingSenderId: "623152189871"
 };
+ 
 firebase.initializeApp(config);
+
 
 var database = firebase.database();
 
@@ -17,6 +18,22 @@ var address;
 var website;
 var id;
 
+
+// const venues = [
+// 	{
+// 		name: "United Center",
+// 		address: "1901 W Madison St, Chicago, IL 60612",
+// 		website: "https:www.unitedcenter.com",
+// 		id: ""
+// 	},
+// 	{
+// 		name: "Chicago Theater",
+// 		address: ""
+// 	},
+// ];
+
+
+
 // constructor object for new venues
 function Venue(name, address, website, id)
 {
@@ -26,6 +43,7 @@ function Venue(name, address, website, id)
 	this.id = id;
 	//addd new properties here
 }
+
 // constructor object for new venues
 function Venue(name, address, website, id)
 {
@@ -35,6 +53,7 @@ function Venue(name, address, website, id)
 	this.id = id;
 	//addd new properties here
 }
+
 var directions = "https://www.google.com/maps/place/";
 
 var uc = new Venue("United Center", 
@@ -180,6 +199,7 @@ function addInfo() {
 
 
 
+
 		newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
 		  <div class="card-img-top" style="background-image: url(assets/images/${event.id}.jpg)"></div>
 		  <div class="card-body">
@@ -190,6 +210,7 @@ function addInfo() {
 		</div></div>`;
 
 		//append new containers to .top(large html container)
+
 
 	}
 	$(".top").html(newVenueDiv);
