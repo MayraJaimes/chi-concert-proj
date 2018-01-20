@@ -30,7 +30,7 @@ firebase.initializeApp(config);
     localStorage.setItem("name", name);
 
       
-    $("#displayName").append("Logged In: " + localStorage.getItem("name"));
+    $("#displayName").text("Logged In: " + localStorage.getItem("name"));
 
     $("#loginName").val("");
 
