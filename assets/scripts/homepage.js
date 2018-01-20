@@ -186,27 +186,25 @@ getSelectors();
 function addInfo() {
 	//iterate over the length of venues and add html into every venue
 	// also creates ids that correspond to array location
+	let newVenueDiv = ''
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
-		
-							//there is an <a> tag surrounding the specific venue section that
-							//when section clicked takes you to venue html with correct venue info 
-		var newVenueDiv = `<a href="venues.html?venue=${event.id}&imgsrc=${event.image}"><div class="row col-md-6 col-sm-6 col-xs-6 venue">`+
-							`<div class="panel panel-default">`+
-							`<div class="panel-heading">`+
-								`<h3 class="panel-title" id= "name${i}">${event.name}</h3></div>`+
-							`<div class="panel-body">`+
-								`<div class="row">`+
-									`<div class="col-md-6">`+
-										`<div class="row">`+
-											`<div class="col-md-12 address" id="address${i}">${event.address}</div></div>`+
-										`<div class="row">`+
-										`<div class="col-md-6 website" id="website${i}">${event.website}</div></div></div>`+
-									`<div class="col-md-6"> <div class="concertImage"><img src='assets/images/${event.image}.jpg' alt="${event.image}"/></div> </div></a>`;
 
-		//append new containers to .top(large html container)				
-		$(".top").append(newVenueDiv);
+
+
+		newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
+		  <div class="card-img-top" style="background-image: url(assets/images/${event.image}.jpg)"></div>
+		  <div class="card-body">
+		    <h5 class="card-title">${event.name}</h5>
+		    <p class="card-text">${event.address}</p>
+		    <a href="venues.html?venue=${event.id}&imgsrc=${event.image}" class="btn btn-primary">Check Concerts</a>
+		  </div>
+		</div></div>`;
+
+		//append new containers to .top(large html container)
+
 	}
+	$(".top").html(newVenueDiv);
 }
 
 addInfo();
