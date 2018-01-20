@@ -46,9 +46,7 @@ h1, p {
 }
 
 #flagWhite {
-
 	height: 145px;
-
 	width: 100%;
 	background: white;
 	position: static;
@@ -163,7 +161,7 @@ b {
 
 #homepage .card a {
 	background: #B24200;
-	border: 1px solid #FF5E00;
+	border: 1px solid #ddd;
 	color: #fff;
 }
 
@@ -206,17 +204,3 @@ padding: 20px;
 #venuePage .panel-default {
 	background: #fff;
 }
-.card-img-top {
-	width: 348px;
-	height: 200px;
-}
-
-.card:hover {
-	overflow: hidden;
-}
-
-.card-img-top:hover {
-	transform: scale(1.2);
-	overflow: hidden;
-}
-
