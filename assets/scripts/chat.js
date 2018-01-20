@@ -20,17 +20,23 @@ firebase.initializeApp(config);
     event.preventDefault();
 
 
-    console.log("Login Button is working");
-
-
     var name = $("#loginName").val().trim();
 
     localStorage.clear();
 
     localStorage.setItem("name", name);
 
+    if (name != null) {
+
       
     $("#displayName").text("Logged In: " + localStorage.getItem("name"));
+  }
+
+    else {
+
+      $("#displayName").text("");
+
+    }
 
     $("#loginName").val("");
 
@@ -46,8 +52,6 @@ firebase.initializeApp(config);
   $("#logoffButton").on("click", function(event){
     event.preventDefault();
 
-
-    console.log("Logoff Button is working");
 
         localStorage.clear();
         
