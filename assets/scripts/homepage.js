@@ -28,6 +28,17 @@ function Venue(name, address, website, id)
 	this.id = id;
 	//addd new properties here
 }
+
+// constructor object for new venues
+function Venue(name, address, website, id)
+{
+	this.name = name;
+	this.address = address;
+	this.website = website;
+	this.id = id;
+	//addd new properties here
+}
+
 var directions = "https://www.google.com/maps/place/";
 
 var uc = new Venue("United Center", 
@@ -175,7 +186,7 @@ function addInfo() {
 
 
 		newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
-		  <div class="card-img-top" style="background-image: url(assets/images/${event.id}.jpg)"></div>
+		 <a href="venues.html?venue=${event.id}"> <div class="card-img-top" style="background-image: url(assets/images/${event.id}.jpg)"></div></a>
 		  <div class="card-body">
 		    <h5 class="card-title">${event.name}</h5>
 		    <p class="card-text"><a href="${event.address}" target="_blank">Directions</a></p>
