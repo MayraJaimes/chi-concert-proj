@@ -42,35 +42,38 @@ h1, p {
 }
 
 #flagWhite {
-	border-top: 10px solid #afeeee;
-	border-bottom: 10px solid #afeeee;
+	height: 145px;
+	width: 100%;
 	background: white;
-	padding: 0 10px;
+	position: static;
+	padding-top: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	box-shadow: 0 2px 14px #777;
 }
 
 #flagBlueOne {
 	width: 100%;
-	height: 30px;
+	height: 20px;
 	background: #AFEEEE;
 	position: relative;
 }
 
 #flagBlueTwo {
 	width: 100%;
-	height: 30px;
+	height: 20px;
 	background: #AFEEEE;
-	margin-top: 20px;
+	margin-top: 10px;
 	position: relative;
 }
 
-#flagText a{
+#flagText {
 	color: red;
 	font-family: 'Dancing Script', cursive;
-	font-size: 60px;
+	font-size: 40px;
+	margin-top: 5px;
+	margin-bottom: 0px;
 }
 
 #flagText a:hover {
