@@ -16,6 +16,10 @@
 	height: 177px;
 }
 
+.venueSubheading {
+	width: 100%;
+}
+
 #venueDescription {
 	font-size: 15px;
 }
