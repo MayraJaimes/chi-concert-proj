@@ -57,7 +57,7 @@ h1, p {
 	z-index: 100;
 }
 
-#flagBlueOne {
+#flagBlueOne, #flagBlueTwo {
 	width: 100%;
 	height: 20px;
 	background: #AFEEEE;
@@ -65,19 +65,13 @@ h1, p {
 }
 
 #flagBlueTwo {
-	width: 100%;
-	height: 20px;
-	background: #AFEEEE;
 	margin-top: 10px;
-	position: relative;
 }
 
 #flagText {
 	color: red;
 	font-family: 'Dancing Script', cursive;
-
 	font-size: 40px;
-
 	margin-top: 5px;
 	margin-bottom: 0px;
 }
@@ -117,25 +111,15 @@ a:link, a:visited, a:hover, a:active {
 
 #chatoutputs {
 	background: white;
-	margin-top: ;
-	margin-left: 5px;
-	margin-right: 90px;
-	margin-bottom: 15px;
-	padding-left: 20px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-right: 20px;
-	border-style: solid;
-	border-width: 1px;
+	margin: 0 90px 15px 5px;
+	padding: 15px 20px 15px 20px;
+	border: 1px solid #ddd;
 	border-radius: 5px;
-	border-color: #ddd;
 	width: 98%;
 }
 
 #sendMessage {
-	margin-left: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin: 20px 0 20px 10px;
 }
 
 b {
@@ -180,8 +164,8 @@ b {
 
 #venuePage .card-title {
 	margin: -140px -20px 50px;
-background: rgba(0, 0, 0, 0.6);
-padding: 20px;
+	background: rgba(0, 0, 0, 0.6);
+	padding: 20px;
 }
 
 #venuePage .card-title h5 {
@@ -198,7 +182,6 @@ padding: 20px;
 
 #venuePage .card-text {
 	text-align: left;
-	
 }
 
 #venuePage a.venueLikeButton {
@@ -216,9 +199,7 @@ padding: 20px;
 
 .table {
 	background: white;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #ddd;
+	border: 1px solid #ddd;
 	width: 1140px;
 	margin-left: -15px;
 }
@@ -229,7 +210,7 @@ padding: 20px;
 	position: relative;
 }
 
-#footerText {
+.footerText {
 	text-align: center;
 	position: relative;
 }

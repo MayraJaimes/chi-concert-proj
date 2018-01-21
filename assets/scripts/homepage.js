@@ -3,7 +3,6 @@ var address;
 var website;
 var id;
 
-
 // const venues = [
 // 	{
 // 		name: "United Center",
@@ -16,18 +15,6 @@ var id;
 // 		address: ""
 // 	},
 // ];
-
-
-
-// constructor object for new venues
-function Venue(name, address, website, id)
-{
-	this.name = name;
-	this.address = address;
-	this.website = website;
-	this.id = id;
-	//addd new properties here
-}
 
 // constructor object for new venues
 function Venue(name, address, website, id)
@@ -178,7 +165,7 @@ getSelectors();
 function addInfo() {
 	//iterate over the length of venues and add html into every venue
 	// also creates ids that correspond to array location
-	let newVenueDiv = ''
+	let newVenueDiv = '';
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
 
@@ -192,7 +179,6 @@ function addInfo() {
 		</div></div>`;
 
 		//append new containers to .top(large html container)
-
 	}
 	$(".top").html(newVenueDiv);
 }
