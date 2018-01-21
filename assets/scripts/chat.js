@@ -18,6 +18,15 @@ firebase.initializeApp(config);
 
  var message = "";
 
+ window.onload = function checkLocal() {
+    var local = localStorage.getItem("name") || " ";
+    if (local === " ") {
+
+    $("#displayName").text("");
+      
+    }
+  }
+
  $("#loginNameButton").on("click", function(event){
     event.preventDefault();
 
