@@ -90,6 +90,15 @@ a:link, a:visited, a:hover, a:active {
     color: black;
 }
 
+.loginForm {
+	width: 100%;
+	text-align: center;
+}
+
+#displayName {
+	width: 65%;
+}
+
 #nameTitle {
 	margin-left: 5px;
 	text-align: left;
