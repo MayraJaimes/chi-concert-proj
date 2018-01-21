@@ -17,13 +17,45 @@
 
 </head>
 
-<body>
+<body id="colorBody">
 
- <div id="flagWhite">
-   <!-- <p>Logged In:</p> -->
-   <h1 id="flagText"><a href="index.html">✶ ✶ Chicago Concert Connection ✶ ✶
-  </a></h1>
- </div>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <p id="displayName">Logged In:</p>
+         
+  <a class="navbar-brand" href="index.html">Home</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div id="flagWhite">
+       
+  <div id="flagBlueOne"></div>
+
+    <a href="index.html"><h1 id="flagText">✶ ✶ Chicago Concert Connection ✶ ✶</h1></a>
+       
+  <div id="flagBlueTwo"></div>
+    
+</div>
 
 <div class="container" id="venuePage">
   <div class="row" id="venueInformation">
@@ -34,7 +66,7 @@
         <div class="card-body">
           <div class="card-title">
             <h5>
-              <span id="venueName">Venue</span><small >Venue Capacity: <span id="venueCapacity"></span></small><a href="#" class="venueLikeButton" data-id="" data-type="venue" data-liked="false" data-number="0"><img src="assets/images/likeButton.png"><span>1 likes</span></a>
+              <span id="venueName">Venue</span><small >Venue Capacity: <span id="venueCapacity"></span></small><a href="#" class="venueLikeButton likeButton" data-id="" data-type="venue" data-liked="false" data-number="0"><img src="assets/images/likeButton.png"><span>1 likes</span></a>
             </h5>
           </div>
           <p class="card-text" id="venueDescription"></p>
@@ -42,9 +74,8 @@
       </div>
     </div>
   </div>
-
-   <!-- Current Product -->
-
+  
+  <!-- Current Product -->
   <div class="row">
     <div class="col-sm-12 table-container">
       <table class="table">
@@ -61,31 +92,27 @@
   </div>
 
   <form>
+    <p id="nameTitle">Name :</p>
+    <input type="text" id="userName-input">
+    <br>
+    <p id="messageTitle">Message :</p>
+    <input type="text" id="userMessage-input">
+    <br>
+    <button id="sendMessage">Submit</button>
+  </form>
+    <div id="chatoutputs">
+      <div id="comment-display"></div>
+    </div>
 
-     <p id="nameTitle">Name :</p>
-     <input type="text" id="userName-input">
+</div>
 
-     <br>
+  <footer>
+  <p class="footerText">Powered by: <img src="assets/images/songkickLogo.jpg" id="songkickLogo"></p>
+  </footer>
 
-     <p id="messageTitle">Message :</p>
-     <input type="text" id="userMessage-input">
-
-     <br>
-
-     <button id="sendMessage">Submit</button>
-
-   </form>
-
-     <div id="chatoutputs">
-
-     <div id="comment-display"></div>
-
-     </div>
-
- </div>
- <!-- JavaScript -->
-<script src="assets/scripts/chat.js"></script>
-<script src="assets/scripts/venues.js"></script>
+   <!-- JavaScript -->
+  <script src="assets/scripts/chat.js"></script>
+  <script src="assets/scripts/venues.js"></script>
 
 </body>
 

@@ -1,22 +1,21 @@
-// Initialize Firebase
-var config = {
-apiKey: "AIzaSyDIlnbkpqY2Eg-QNtpjUBcse4t5kpX8ICU",
-authDomain: "chicago-concert-project.firebaseapp.com",
-databaseURL: "https://chicago-concert-project.firebaseio.com",
-projectId: "chicago-concert-project",
-storageBucket: "chicago-concert-project.appspot.com",
-messagingSenderId: "655657671055"
-};
-firebase.initializeApp(config);
-
-var database = firebase.database();
-
-//venue variables/ info that we want to add to each object;
 var name;
 var address;
 var website;
 var id;
 
+// const venues = [
+// 	{
+// 		name: "United Center",
+// 		address: "1901 W Madison St, Chicago, IL 60612",
+// 		website: "https:www.unitedcenter.com",
+// 		id: ""
+// 	},
+// 	{
+// 		name: "Chicago Theater",
+// 		address: ""
+// 	},
+// ];
+
 // constructor object for new venues
 function Venue(name, address, website, id)
 {
@@ -26,15 +25,7 @@ function Venue(name, address, website, id)
 	this.id = id;
 	//addd new properties here
 }
-// constructor object for new venues
-function Venue(name, address, website, id)
-{
-	this.name = name;
-	this.address = address;
-	this.website = website;
-	this.id = id;
-	//addd new properties here
-}
+
 var directions = "https://www.google.com/maps/place/";
 
 var uc = new Venue("United Center", 
@@ -174,23 +165,20 @@ getSelectors();
 function addInfo() {
 	//iterate over the length of venues and add html into every venue
 	// also creates ids that correspond to array location
-	let newVenueDiv = ''
+	let newVenueDiv = '';
 	for (var i = 0; i < venueArray.length; i++) {
 		var event = venueArray[i];
 
-
-
 		newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
-		  <div class="card-img-top" style="background-image: url(assets/images/${event.id}.jpg)"></div>
+		 <a href="venues.html?venue=${event.id}&imgsrc=${event.id}"> <div class="card-img-top homepageIMG" style="background-image: url(assets/images/${event.id}.jpg)"></div></a>
 		  <div class="card-body">
 		    <h5 class="card-title">${event.name}</h5>
-		    <p class="card-text"><a href="${event.address}" target="_blank">Directions</a></p>
+		    <a href="${event.address}" class="btn btn-primary directionsButton" target="_blank">Directions</a>
 		    <a href="venues.html?venue=${event.id}&imgsrc=${event.id}" class="btn btn-primary">Check Concerts</a>
 		  </div>
 		</div></div>`;
 
 		//append new containers to .top(large html container)
-
 	}
 	$(".top").html(newVenueDiv);
 }

@@ -2,7 +2,7 @@ let $d = $(document);
 var db = firebase.database();
 //I run the getParameterByName in this page to use the Query Strings
 var venueId = getParameterByName("venue");
-var venueImage = getParameterByName('imgsrc');
+var venueImg = getParameterByName('imgsrc');
 
 //getting venue information from API. Ajax call.
 function getVenue(id) {
@@ -24,6 +24,7 @@ function getConcerts(id) {
     method: "GET"
   }).done(function(response) {
     $d.trigger("concerts:loaded", response.resultsPage.results);
+        console.log(response.resultsPage.results);
   });
 }
 
@@ -37,7 +38,7 @@ function buildVenueHTML(e, data) {
   $venueHeader.text(data.displayName);
   $venueCapacity.text(data.capacity);
   $venueDescription.text(data.description);
-  $venueImage.css({backgroundImage: `url(assets/images/${venueImage}.jpg)`});
+  $venueImage.css({backgroundImage: `url(assets/images/${venueImg}.jpg)`});
 
   setVenueLikes(data.id);
   //calling the function to get information about concerts from the API
@@ -51,7 +52,7 @@ function buildConcertsHTML(e, data) {
   let events = data.event;
   for (let i = 0; i < events.length; i++) {
     concertHTML = `<tr id="${events[i].id}">
-                      <td class="eventArtist"> ${events[i].displayName}</td>
+                      <td class="eventArtist"><a href="${events[i].uri}" target="_blank"> ${events[i].displayName}</a></td>
                       <td class="eventLikes">
                         <a href="#" events-type="concert" data-liked=false data-id="${
                           events[i].id
@@ -60,7 +61,7 @@ function buildConcertsHTML(e, data) {
                         </a>
                       </td>
                     </tr>`;
-
+                        console.log(events[i].uri);
     $concertTable.append(concertHTML);
     setConcertLikes(events[i].id);
   }
@@ -119,7 +120,7 @@ $("#venuePage").on("click", ".likeButton", function(event) {
     $this.data("number", currentNum);
     $this.data("liked", true);
     $this.html(
-      "<img src='assets/images/likeButton.png'>" + currentNum + " likes"
+      "<img src='assets/images/userLiked.png'>" + currentNum + " likes"
     );
 
 //once you click on the like button IF it IS liked already (data-liked=true) it grabs the data-number value and subtracts one to it, then sets that number back as the data-number value, and changes the data-liked value to false.

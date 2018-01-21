@@ -12,9 +12,46 @@ firebase.initializeApp(config);
 
  var database = firebase.database();
 
+ var id = getParameterByName("venue");
+
  var userName = "";
 
  var message = "";
+
+ $("#loginNameButton").on("click", function(event){
+    event.preventDefault();
+
+
+    var name = $("#loginName").val().trim();
+
+    localStorage.clear();
+
+    localStorage.setItem("name", name);
+
+        
+    $("#displayName").text("Logged In: " + localStorage.getItem("name"));
+  
+    $("#loginName").val("");
+
+    console.log(name);
+
+
+    });
+
+    $("#displayName").append(" " + localStorage.getItem("name"));
+
+
+
+  $("#logoffButton").on("click", function(event){
+    event.preventDefault();
+
+
+        localStorage.clear();
+        
+        $("#displayName").text("");
+
+    
+    });
 
  //button for adding new user info
  $("#sendMessage").on("click", function(event){
@@ -37,7 +74,7 @@ firebase.initializeApp(config);
      };
 
    //Uploads new messages into the database
-   database.ref().push(newEmp);
+   database.ref("chat/" + id).push(newEmp);
 
  //Clear input boxes
  $("#userName-input").val("");
@@ -46,7 +83,7 @@ firebase.initializeApp(config);
  });
 
 //Create Firebase event for adding messages
-  database.ref().on("child_added", function(snapshot) {
+  database.ref("chat/" + id).on("child_added", function(snapshot) {
 
   userName = snapshot.val().userName;
 
