@@ -155,17 +155,30 @@ b {
 }
 
 #homepage .card a.directionsButton{
-	background: #AFEEEE;
+	background: #8FBC8F;
+	color: black;
+	margin-bottom: 0px
+}
+
+#homepage .card a.venueButton{
+	background: #8FBC8F;
+	color: black;
+	margin-left: 15px;
+	margin-bottom: 0px
+}
+
+#homepage .card h5.venueName{
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 0px;
 }
 
 #venuePage .card {
 	margin: 40px 0;
 }
 
-#venuePage .card-title {
-	margin: -140px -20px 50px;
-	background: rgba(0, 0, 0, 0.6);
-	padding: 20px;
+#venuePage .venueName {
+	margin-left: 80px;
 }
 
 #venuePage .card-title h5 {
