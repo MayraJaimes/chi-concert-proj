@@ -91,35 +91,38 @@ a:link, a:visited, a:hover, a:active {
 }
 
 #nameTitle {
-	margin-left: 5px;
+	margin-left: -10px;
 	text-align: left;
 }
 
 #userName-input {
-	margin-left: 5px;
+	margin-left: -10px;
 }
 
 #messageTitle {
-	margin-left: 5px;
+	margin-left: -10px;
 	text-align: left;
 	margin-top: 10px;
 }
 
 #userMessage-input{
-	margin-left: 5px;
+	margin-left: -10px;
 }
 
 #chatoutputs {
 	background: white;
-	margin: 0 90px 15px 5px;
+	margin-left: -10px;
+	margin-bottom: 50px;
 	padding: 15px 20px 15px 20px;
 	border: 1px solid #ddd;
 	border-radius: 5px;
-	width: 98%;
+	width: 100%;
 }
 
 #sendMessage {
-	margin: 20px 0 20px 10px;
+	margin-left: -10px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 b {
