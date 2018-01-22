@@ -18,11 +18,25 @@ firebase.initializeApp(config);
 
  var message = "";
 
+
+//Check local storage for value
+ window.onload = function checkLocal() {
+    var local = localStorage.getItem("name") || " ";
+    if (local === " ") {
+
+    $("#displayName").text("");
+      
+    }
+  };
+
+//Function to log in
  $("#loginNameButton").on("click", function(event){
     event.preventDefault();
 
 
     var name = $("#loginName").val().trim();
+
+    userName = $("#loginName").val().trim();
 
     localStorage.clear();
 
@@ -33,16 +47,16 @@ firebase.initializeApp(config);
   
     $("#loginName").val("");
 
-    console.log(name);
-
 
     });
 
+
+    
     $("#displayName").append(" " + localStorage.getItem("name"));
 
-
-
-  $("#logoffButton").on("click", function(event){
+ 
+//Function to log off
+$("#logoffButton").on("click", function(event){
     event.preventDefault();
 
 
@@ -50,28 +64,29 @@ firebase.initializeApp(config);
         
         $("#displayName").text("");
 
-    
     });
+
 
  //button for adding new user info
  $("#sendMessage").on("click", function(event){
      event.preventDefault();
 
-   //grabs user input
-     userName = $("#userName-input").val().trim();
+     userName = localStorage.getItem("name");
+
 
      message = $("#userMessage-input").val().trim();
 
      //Creates local "temporary" object for holding new messages
-   var newEmp = {
+    var newEmp = {
 
-         userName: userName,
 
-         message: message,
+        userName: userName,
 
-     dateAdded: firebase.database.ServerValue.TIMESTAMP
+        message: message,
 
-     };
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+
+      };
 
    //Uploads new messages into the database
    database.ref("chat/" + id).push(newEmp);
