@@ -26,6 +26,10 @@ firebase.initializeApp(config);
 
     $("#displayName").text("");
       
+    } else{
+
+      $("#displayName").show();
+
     }
   };
 
@@ -42,6 +46,7 @@ firebase.initializeApp(config);
 
     localStorage.setItem("name", name);
 
+    $("#displayName").show();
         
     $("#displayName").text("Logged In: " + localStorage.getItem("name"));
   
