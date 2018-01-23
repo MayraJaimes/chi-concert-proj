@@ -37,8 +37,8 @@ function populate(id) {
 	venueID[id].uri = results.uri;
 	venueID[id].id = results.id;
 	venueID[id].directions = `https://www.google.com/maps/place/${results.street}`;
-// need to get number of keys to 
-	if(receivedID >= 18){
+
+	if(receivedID >= Object.keys(venueID).length){
 		addVenues();
 		updateDropdown();	
 	}
@@ -52,11 +52,9 @@ function addVenues() {
 	//iterate over the length of venues and add html into every venue
 	// also creates ids that correspond to array location
 	let newVenueDiv = '';
-
-	
-		for (venue in venueID){
-			var event = venueID[venue];		
-			newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
+	for (venue in venueID){
+		var event = venueID[venue];		
+		newVenueDiv += `<div class="col-xs-12 col-sm-6 col-md-4"><div class="card">
 		 <a href="venues.html?venue=${event.id}&imgsrc=${event.id}"> <div class="card-img-top homepageIMG" style="background-image: url(assets/images/${event.id}.jpg)"></div></a>
 		  <div class="card-body">
 		    <h5 class="card-title venueName">${event.name}</h5>
@@ -65,9 +63,9 @@ function addVenues() {
 		    <a href="venues.html?venue=${event.id}&imgsrc=${event.id}" class="btn btn-primary venueButton btn-lg btn-block">Check Concerts</a>
 		  </div>
 		</div></div>`;
-			//append new containers to .top(large html container)
-		};
-		$(".top").html(newVenueDiv);
+		//append new containers to .top(large html container)
+	};
+	$(".top").html(newVenueDiv);
 
 	}
 
