@@ -39,7 +39,8 @@ function populate(id) {
 	venueID[id].directions = `https://www.google.com/maps/place/${results.street}`;
 // need to get number of keys to 
 	if(receivedID >= 18){
-		addInfo();	
+		addVenues();
+		updateDropdown();	
 	}
   });
 }
@@ -47,11 +48,11 @@ function populate(id) {
 for (property in venueID){
 	populate(property);
 };
-function addInfo() {
+function addVenues() {
 	//iterate over the length of venues and add html into every venue
 	// also creates ids that correspond to array location
 	let newVenueDiv = '';
-	let newDropdown = '';
+
 	
 		for (venue in venueID){
 			var event = venueID[venue];		
@@ -68,12 +69,16 @@ function addInfo() {
 		};
 		$(".top").html(newVenueDiv);
 
+	}
+
+function updateDropdown(){
+			let newDropdown = '';	
 		for (venue in venueID){
 			var dEvent = venueID[venue];
 			newDropdown += `<a class="dropdown-item" href="venues.html?venue=${dEvent.id}
 								&imgsrc=${dEvent.id}">${dEvent.name}</a>`
 		};
 		$(".dropdown-item").append(newDropdown);
-	}
 
+};
 
