@@ -232,7 +232,7 @@ b {
 }
 
 #songkickLogo {
-	height: 70px;
+	height: 50px;
 	width: 200px;
 	position: relative;
 }
@@ -240,4 +240,12 @@ b {
 .footerText {
 	text-align: center;
 	position: relative;
+}
+
+#venueCapacity {
+	color: black;
+}
+
+#capacityTitle {
+	color: black;
 }

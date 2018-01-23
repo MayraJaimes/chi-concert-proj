@@ -34,10 +34,48 @@ function buildVenueHTML(e, data) {
   const $venueCapacity = $("#venueCapacity");
   const $venueDescription = $("#venueDescription");
   const $venueImage = $("#venueImage");
+  var venueDataDescription = data.description ? data.description : "Venue description coming soon!"
+
+  if (venueId === 521) {
+    venueDataDescription = `PARAGRAPHS !!!!!!!!!! In 1988, William Wirtz, owner of the Chicago Blackhawks, and Jerry Reinsdorf, majority owner and Team Chairman of the Chicago Bulls, formed a new partnership to create an arena that would take sports and entertainment into the 21st century.
+    The United Center, home to the Chicago Blackhawks and Chicago Bulls, is the largest arena in the United States. Construction was begun in April of 1992, with the ribbon cutting ceremony being held on August 18, 1994.
+    Since opening, the United Center has hosted over 200 events each year. Some of the events the United Center has been proud to host include the 1996 Democratic National Convention, The Rolling Stones, Eric Clapton, Bruce Springsteen and the E Street Band, Paul McCartney, U2, The Who, The 3 Tenors, Ringling Brothers and Barnum & Bailey Circus, Disney on Ice, the Big Ten Men's Basketball Tournament, the Men's NCAA Basketball Tournament, the Great Eight Classic, Illinois College Basketball, and Champions on Ice.
+    The United Center has hosted over forty million guests since its opening in 1994.`
+
+  } else if (venueId === 837) {
+    venueDataDescription = "With its extraordinary architectural design and aesthetics, the Aragon Ballroom is one of Chicago’s premier live entertainment venues. The Aragon Ballroom Chicago was built in 1926, and at a cost of $2 million, was one of the most elaborate venues of its time. Indeed, soon after its opening, the Aragon Ballroom was called 'the most beautiful ballroom in the world.' Crystal chandeliers, mosaic tiles, beautiful arches, extravagant balconies and terra-cotta ceilings combine to create a truly magnificent and unique venue in the Aragon Ballroom Chicago."
+
+  } else if (venueId = 17091) {
+    venueDataDescription = "BOTTOM LOUNGE BOTTOM LOUNGE"
+
+  } else if (venueId === 259) {
+    venueDataDescription = "HIDEOUT HIDEOUT HIDEOUT HIDEOUT"
+
+  } else if (venueId === 251) {
+    venueDataDescription = "EMPTY BOTTLE EMPTY BOTTLE"
+
+  } else if (venueId === 540136) {
+    venueDataDescription = "REGGIES REGGIES REGGIES"
+
+  } else if (venueId === 2176) {
+    venueDataDescription = "BUDDY GUY BUDDY GUY"
+
+  } else if (venueId === 513326) {
+    venueDataDescription = "LINCOLN HALL LINCOLN HALL"
+
+  } else if (venueId === 6540) {
+    venueDataDescription = "DOUBLE DOOR DOUBLE DOOR"
+
+  } else if (venueId === 1406) {
+    venueDataDescription = "PARK WEST PARK WEST"
+  
+  } else {
+    venueDataDescription = data.description
+  } 
 
   $venueHeader.text(data.displayName);
   $venueCapacity.text(data.capacity);
-  $venueDescription.text(data.description);
+  $venueDescription.text(venueDataDescription);
   $venueImage.css({backgroundImage: `url(assets/images/${venueImg}.jpg)`});
 
   setVenueLikes(data.id);
