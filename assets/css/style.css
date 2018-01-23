@@ -90,36 +90,48 @@ a:link, a:visited, a:hover, a:active {
     color: black;
 }
 
+.loginForm {
+	width: 100%;
+	text-align: center;
+}
+
+#displayName {
+	width: 65%;
+}
+
 #nameTitle {
-	margin-left: 5px;
+	margin-left: -10px;
 	text-align: left;
 }
 
 #userName-input {
-	margin-left: 5px;
+	margin-left: -10px;
 }
 
 #messageTitle {
-	margin-left: 5px;
+	margin-left: -10px;
 	text-align: left;
 	margin-top: 10px;
 }
 
 #userMessage-input{
-	margin-left: 5px;
+	margin-left: -10px;
 }
 
 #chatoutputs {
 	background: white;
-	margin: 0 90px 15px 5px;
+	margin-left: -10px;
+	margin-bottom: 50px;
 	padding: 15px 20px 15px 20px;
 	border: 1px solid #ddd;
 	border-radius: 5px;
-	width: 98%;
+	width: 100%;
 }
 
 #sendMessage {
-	margin: 20px 0 20px 10px;
+	margin-left: -10px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 b {
@@ -155,17 +167,32 @@ b {
 }
 
 #homepage .card a.directionsButton{
-	background: #AFEEEE;
+	background: #8FBC8F;
+	color: black;
+	margin-bottom: 0px
+	font-weight: bold;
+}
+
+#homepage .card a.venueButton{
+	background: #8FBC8F;
+	color: black;
+	margin-bottom: 0px
+	font-weight: bold;
+}
+
+#homepage .card h5.venueName{
+	text-align: center;
+	margin-bottom: 15px;
+	margin-top: -5px;
+	font-weight: bold;
 }
 
 #venuePage .card {
 	margin: 40px 0;
 }
 
-#venuePage .card-title {
-	margin: -140px -20px 50px;
-	background: rgba(0, 0, 0, 0.6);
-	padding: 20px;
+#venuePage .venueName {
+	margin-left: 80px;
 }
 
 #venuePage .card-title h5 {
@@ -205,7 +232,7 @@ b {
 }
 
 #songkickLogo {
-	height: 70px;
+	height: 50px;
 	width: 200px;
 	position: relative;
 }
@@ -213,4 +240,12 @@ b {
 .footerText {
 	text-align: center;
 	position: relative;
+}
+
+#venueCapacity {
+	color: black;
+}
+
+#capacityTitle {
+	color: black;
 }
