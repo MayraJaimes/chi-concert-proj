@@ -54,10 +54,29 @@ firebase.initializeApp(config);
 
 
     });
-
-
     
     $("#displayName").append(" " + localStorage.getItem("name"));
+
+  //Function to log in via chat window
+  $("#chatLogin-Button").on("click", function(event){
+    event.preventDefault();
+
+    var name = $("#chatLogin-Input").val().trim();
+
+    userName = $("#chatLogin-Input").val().trim();
+
+    localStorage.clear();
+
+    localStorage.setItem("name", name);
+
+    $("#displayName").show();
+        
+    $("#displayName").text("Logged In: " + localStorage.getItem("name"));
+
+    $("#loginScreen").hide();
+            $("#cover").hide(); 
+  
+    });
 
  
 //Function to log off
@@ -78,10 +97,27 @@ $("#logoffButton").on("click", function(event){
 
      userName = localStorage.getItem("name");
 
+        var local = localStorage.getItem("name") || " ";
+        if (local === " ") {
 
-     message = $("#userMessage-input").val().trim();
+            $("#loginScreen").show();
+            $("#cover").show();            
 
-     //Creates local "temporary" object for holding new messages
+        }else {
+
+            message = $("#userMessage-input").val().trim(); 
+        }
+
+    //button to exit chat log in
+
+  $(".cancel").on("click", function(event){
+     event.preventDefault();
+      $("#loginScreen").hide();
+            $("#cover").hide(); 
+
+      }); 
+
+  //Creates local "temporary" object for holding new messages
     var newEmp = {
 
 
