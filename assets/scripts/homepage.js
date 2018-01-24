@@ -3,18 +3,6 @@ var address;
 var website;
 var id;
 
-// const venues = [
-// 	{
-// 		name: "United Center",
-// 		address: "1901 W Madison St, Chicago, IL 60612",
-// 		website: "https:www.unitedcenter.com",
-// 		id: ""
-// 	},
-// 	{
-// 		name: "Chicago Theater",
-// 		address: ""
-// 	},
-// ];
 
 // constructor object for new venues
 function Venue(name, address, website, id)
