@@ -24,7 +24,6 @@ function getConcerts(id) {
     method: "GET"
   }).done(function(response) {
     $d.trigger("concerts:loaded", response.resultsPage.results);
-        console.log(response.resultsPage.results);
   });
 }
 
@@ -61,7 +60,6 @@ function buildConcertsHTML(e, data) {
                         </a>
                       </td>
                     </tr>`;
-                        console.log(events[i].uri);
     $concertTable.append(concertHTML);
     setConcertLikes(events[i].id);
   }

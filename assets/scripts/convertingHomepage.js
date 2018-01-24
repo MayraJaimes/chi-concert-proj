@@ -20,7 +20,7 @@ function Venue(name, address, website, id)
 	//addd new properties here
 };
 var receivedID = 0;
-var apiKey = config.home_key;
+var apiKey = config.MY_KEY;
 // function to call api and store parameters for homepage.
 function populate(id) {
   $.ajax({
