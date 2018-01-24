@@ -24,7 +24,7 @@ var apiKey = 'awz1NrZkcMbHwia9';
 // function to call api and store parameters for homepage.
 function populate(id) {
   $.ajax({
-    url: `http://api.songkick.com/api/3.0/venues/${id}.json?apikey=${apiKey}`,
+    url: `https://api.songkick.com/api/3.0/venues/${id}.json?apikey=${apiKey}`,
     method: "GET"
   }).done(function(response) {
   	//assign varibales to correspond to api results
