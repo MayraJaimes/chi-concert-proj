@@ -7,7 +7,7 @@ var myApi = 'awz1NrZkcMbHwia9';
 //getting venue information from API. Ajax call.
 function getVenue(id) {
   $.ajax({
-    url: `http://api.songkick.com/api/3.0/venues/${id}.json?apikey=${myApi}`,
+    url: `https://api.songkick.com/api/3.0/venues/${id}.json?apikey=${myApi}`,
     method: "GET"
   }).done(function(response) {
     $d.trigger("venue:loaded", response.resultsPage.results.venue);
@@ -18,7 +18,7 @@ function getVenue(id) {
 function getConcerts(id) {
   $.ajax({
     url:
-      "http://api.songkick.com/api/3.0/venues/" +
+      "https://api.songkick.com/api/3.0/venues/" +
       id +
       `/calendar.json?apikey=${myApi}`,
     method: "GET"
