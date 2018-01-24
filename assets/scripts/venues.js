@@ -3,7 +3,7 @@ var db = firebase.database();
 //I run the getParameterByName in this page to use the Query Strings
 var venueId = getParameterByName("venue");
 var venueImg = getParameterByName('imgsrc');
-var myApi = config.MY_KEY;
+var myApi = 'awz1NrZkcMbHwia9';
 //getting venue information from API. Ajax call.
 function getVenue(id) {
   $.ajax({
