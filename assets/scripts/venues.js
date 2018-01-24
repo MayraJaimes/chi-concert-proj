@@ -2,7 +2,6 @@ let $d = $(document);
 var db = firebase.database();
 //I run the getParameterByName in this page to use the Query Strings
 var venueId = getParameterByName("venue");
-var venueImg = getParameterByName('imgsrc');
 var myApi = 'awz1NrZkcMbHwia9';
 //getting venue information from API. Ajax call.
 function getVenue(id) {
@@ -40,7 +39,7 @@ function buildVenueHTML(e, data) {
   $venueHeader.text(data.displayName);
   $venueCapacity.text(data.capacity);
   $venueDescription.text(venueDataDescription);
-  $venueImage.css({backgroundImage: `url(assets/images/${venueImg}.jpg)`});
+  $venueImage.css({backgroundImage: `url(assets/images/${venueId}.jpg)`});
 
   setVenueLikes(data.id);
   //calling the function to get information about concerts from the API
