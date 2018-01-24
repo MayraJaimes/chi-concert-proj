@@ -41,7 +41,7 @@ function populate(id) {
 
 	if(receivedID >= Object.keys(venueID).length){
 		addVenues();
-		updateDropdown();	
+		updateDropdown();
 	}
   });
 }
@@ -80,4 +80,5 @@ function updateDropdown(){
 		$(".dropdown-item").append(newDropdown);
 
 };
+
 
