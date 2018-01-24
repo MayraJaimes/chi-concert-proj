@@ -187,12 +187,15 @@ b {
 	font-weight: bold;
 }
 
+
 #venuePage .card {
 	margin: 40px 0;
 }
 
-#venuePage .venueName {
-	margin-left: 80px;
+#venuePage .card-title {
+	margin: -140px -20px 50px;
+background: rgba(0, 0, 0, 0.6);
+padding: 20px;
 }
 
 #venuePage .card-title h5 {
@@ -209,6 +212,7 @@ b {
 
 #venuePage .card-text {
 	text-align: left;
+	margin: 20px 0;
 }
 
 #venuePage a.venueLikeButton {
@@ -240,12 +244,4 @@ b {
 .footerText {
 	text-align: center;
 	position: relative;
-}
-
-#venueCapacity {
-	color: black;
-}
-
-#capacityTitle {
-	color: black;
 }
