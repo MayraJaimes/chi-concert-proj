@@ -3,11 +3,11 @@ var db = firebase.database();
 //I run the getParameterByName in this page to use the Query Strings
 var venueId = getParameterByName("venue");
 var venueImg = getParameterByName('imgsrc');
-
+var myApi = config.MY_KEY;
 //getting venue information from API. Ajax call.
 function getVenue(id) {
   $.ajax({
-    url: `http://api.songkick.com/api/3.0/venues/${id}.json?apikey=awz1NrZkcMbHwia9`,
+    url: `http://api.songkick.com/api/3.0/venues/${id}.json?apikey=${myApi}`,
     method: "GET"
   }).done(function(response) {
     $d.trigger("venue:loaded", response.resultsPage.results.venue);
@@ -20,7 +20,7 @@ function getConcerts(id) {
     url:
       "http://api.songkick.com/api/3.0/venues/" +
       id +
-      "/calendar.json?apikey=awz1NrZkcMbHwia9",
+      `/calendar.json?apikey=${myApi}`,
     method: "GET"
   }).done(function(response) {
     $d.trigger("concerts:loaded", response.resultsPage.results);
