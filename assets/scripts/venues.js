@@ -34,10 +34,13 @@ function buildVenueHTML(e, data) {
   const $venueCapacity = $("#venueCapacity");
   const $venueDescription = $("#venueDescription");
   const $venueImage = $("#venueImage");
+  var venueDataDescription = data.description ? data.description : "Venue description coming soon!"
+
+  
 
   $venueHeader.text(data.displayName);
   $venueCapacity.text(data.capacity);
-  $venueDescription.text(data.description);
+  $venueDescription.text(venueDataDescription);
   $venueImage.css({backgroundImage: `url(assets/images/${venueImg}.jpg)`});
 
   setVenueLikes(data.id);
