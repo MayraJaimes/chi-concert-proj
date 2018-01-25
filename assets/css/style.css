@@ -10,7 +10,13 @@
 	background-size: cover;
 	background-position: 50% 50%;
 }
+.dropdown-item {
+	font-size: 10px;
+}
+dropdown-item:active{
+	text-decoration: none;
 
+}
 .concertImage img {
 	width: 246px;
 	height: 177px;
