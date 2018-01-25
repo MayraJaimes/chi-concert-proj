@@ -4,6 +4,9 @@
 	margin-top: 20px;
 	position: static;
 }
+.dropdown-item {
+	font-size: 10px;
+}
 
 #venueImage {
 	height: 500px;
