@@ -28,7 +28,7 @@
       <form class="loginForm form-inline my-2 my-lg-0">
         <input id="loginName" class="form-control mr-sm-2" type="text" placeholder="Enter Name">
         <button id="loginNameButton" class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Enter</button>
-        <span id="displayName" > Logged In: </span>
+        <span id="displayName" style="display: none"> Logged In: </span>
       </form>
     </div>
 
@@ -101,6 +101,13 @@
     <br>
     <button id="sendMessage">Submit</button>
   </form>
+  <div id="loginScreen">
+    <button class="cancel">&times;</button>
+    <input id="chatLogin-Input" type="text" placeholder="Enter your name to send a message!">
+    <button id="chatLogin-Button">Enter</button>
+    </div>
+<div id="cover" >
+</div>
     <div id="chatoutputs">
       <div id="comment-display"></div>
     </div>
